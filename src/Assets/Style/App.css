@@ -100,3 +100,39 @@ code {
   border-bottom: 5px solid rgb(0, 165, 82) !important;
 }
 /* Navbar */
+
+/* Countries */
+.countriesSection {
+  position: relative;
+  box-sizing: border-box;
+  margin-top: 20px;
+  width: 100%;
+  height: 150px;
+  border-radius: 5px;
+  border: 1px rgb(216, 216, 216) solid;
+  text-align: center;
+}
+
+.countriesDopdown{
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.countriesDropdownBtn{
+  margin-left: 20px;
+}
+
+.focusNone:focus {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  outline: 0 none !important;
+}
+
+.css-1pahdxg-control{
+  border-color: rgb(0, 165, 82) !important;
+  box-shadow: 0 0 0 1px rgb(100, 255, 177) !important;
+}
