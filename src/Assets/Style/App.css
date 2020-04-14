@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 html {
   background-color: #ffffff;
@@ -10,15 +10,15 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Varela Round", "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Varela Round', 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
@@ -37,11 +37,66 @@ code {
   transform: translate(-50%, -50%);
 }
 
-.title{
-  font-family: "Varela Round";
+/* Navbar */
+.Navbar {
+  background-color: rgb(245, 245, 245) !important;
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+  flex: 1;
+  transition: all 0.4s ease-out;
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  overflow: hidden;
+}
+
+.title {
+  font-family: 'Varela Round';
   font-weight: 700;
+  color: rgb(100, 100, 100) !important;
+}
+
+.fa-lungs-virus {
+  transition: color 1s ease-out;
+  -moz-transition: color 1s ease-out;
+  -o-transition: color 1s ease-out;
+  -webkit-transition: color 1s ease-out;
+}
+
+.title:hover > .fa-lungs-virus {
+  color: rgb(0, 165, 82);
 }
 
 .navWidth {
   width: 100%;
 }
+
+.navIcons {
+  color: rgb(100, 100, 100);
+}
+
+.navIcons:hover {
+  color: rgb(0, 165, 82);
+}
+
+.navIconsSpan {
+  color: rgb(61, 61, 61);
+  margin-left: 10px;
+}
+
+/* ToolTip */
+.myToolTip .fa-github-square {
+  color: rgb(255, 255, 255) !important;
+}
+
+.myToolTip > .tooltip-inner {
+  background-color: rgb(0, 165, 82);
+  color: rgb(255, 255, 255) !important;
+  opacity: 1 !important;
+  border: 1px solid rgb(0, 165, 82);
+}
+
+/* Tooltip Arrow */
+.myToolTip > .bs-tooltip-auto[x-placement^='bottom'] span.arrow::before,
+.bs-tooltip-bottom .arrow::before {
+  border-bottom: 5px solid rgb(0, 165, 82) !important;
+}
+/* Navbar */
