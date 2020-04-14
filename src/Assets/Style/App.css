@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 html {
   background-color: #ffffff;
   background-size: cover;
@@ -40,4 +35,13 @@ code {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.title{
+  font-family: "Varela Round";
+  font-weight: 700;
+}
+
+.navWidth {
+  width: 100%;
 }
