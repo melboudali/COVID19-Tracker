@@ -14,7 +14,8 @@ const Countries = ({
     getCountries();
   }, [getCountries]);
 
-  const [inputValue, setInputValue] = useState('');
+  const [, setInputValue] = useState('');
+  const [SelectedCountry, SetSelectedCountry] = useState('');
 
   const filterCountrie = inputValue => {
     if (!loading && allCountries !== null)
@@ -23,22 +24,30 @@ const Countries = ({
       );
   };
 
-  const loadOptions = (inputValue, callback) => {
+  const loadOptions = (InputValue, callback) => {
     setTimeout(() => {
-      callback(filterCountrie(inputValue));
+      callback(filterCountrie(InputValue));
     }, 1000);
   };
 
-  const handleInputChange = e => {
-    const inputValue = e.country.toLowerCase().replace(/\W/g, '');
-    setInputValue(inputValue);
+  const handleInputChange = newValue => {
+    const inputValue = newValue.replace(/\W/g, '');
+    setInputValue({ inputValue });
     return inputValue;
   };
+
+//   const onChange = e => {
+//     if (e !== null) {
+//       SetSelectedCountry(e.country);
+//       //   Get Current country
+//       console.log(e.country);
+//     }
+//   };
 
   return (
     <div className='countriesSection'>
       <div className='countriesDopdown'>
-        <p>Selected Country: {`${inputValue}`}</p>
+        <p>Selected Country: {`${SelectedCountry}`}</p>
         {loading || allCountries === null ? (
           <Spinner animation='border' role='status' variant='success'>
             <span className='sr-only'>Loading...</span>
@@ -59,15 +68,17 @@ const Countries = ({
                 </div>
               );
             }}
-            getOptionValue={option => 'Zebi'}
+            getOptionValue={option => option}
             cacheOptions
             loadOptions={loadOptions}
             defaultOptions
-            onChange={handleInputChange}
+            onInputChange={handleInputChange}
+            // onChange={onChange}
             components={{ Option: CountriesItem }}
             className='searchBox'
             autoFocus={true}
             isClearable={true}
+            // menuIsOpen={true}
           />
         )}
       </div>
