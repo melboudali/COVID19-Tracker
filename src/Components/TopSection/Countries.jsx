@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getCountries, setCurrent } from '../../Actions/CountriesA';
 import moment from 'moment';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 import AsyncSelect from 'react-select/async';
 import CountriesItem from './CountriesItem';
 import PropTypes from 'prop-types';
@@ -66,60 +68,63 @@ const Countries = ({
         critical,
         tests
       });
-      // updated, country, countryInfo.flag, cases, todayCases, deaths, todayDeaths, recovered, active, critical, tests
     }
   };
 
   return (
-    <div className='countriesSection'>
-      <div className='countriesDopdown'>
-        <p>Selected Country: {`${SelectedCountry}`}</p>
-        {loading || allCountries === null ? (
-          <Spinner animation='border' role='status' variant='success'>
-            <span className='sr-only'>Loading...</span>
-          </Spinner>
-        ) : (
-          <div>
-            <AsyncSelect
-              placeholder='Search or Select Countrie ...'
-              options={allCountries}
-              getOptionLabel={option => {
-                return (
-                  <div>
-                    <img
-                      src={option.countryInfo.flag}
-                      className='flag'
-                      alt={option.country}
-                    />
-                    {`${option.country}`}
-                  </div>
-                );
-              }}
-              getOptionValue={option => option}
-              cacheOptions
-              loadOptions={loadOptions}
-              defaultOptions
-              onInputChange={handleInputChange}
-              onChange={onChange}
-              components={{ Option: CountriesItem }}
-              className='searchBox'
-              autoFocus={true}
-              isClearable={true}
-              // menuIsOpen={true}
-            />
-            <p className='lastUpdate'>
-              <i className='far fa-clock' />
-              Last update:
-              <span>
-                {currentCountry !== null &&
-                  moment(currentCountry.updated).fromNow()}
-                .
-              </span>
-            </p>
+    <Container>
+      <Row>
+        <div className='countriesSection'>
+          <div className='countriesDopdown'>
+            <p>Selected Country: {`${SelectedCountry}`}</p>
+            {loading || allCountries === null ? (
+              <Spinner animation='border' role='status' variant='success'>
+                <span className='sr-only'>Loading...</span>
+              </Spinner>
+            ) : (
+              <div>
+                <AsyncSelect
+                  placeholder='Search or Select Countrie ...'
+                  options={allCountries}
+                  getOptionLabel={option => {
+                    return (
+                      <div>
+                        <img
+                          src={option.countryInfo.flag}
+                          className='flag'
+                          alt={option.country}
+                        />
+                        {`${option.country}`}
+                      </div>
+                    );
+                  }}
+                  getOptionValue={option => option}
+                  cacheOptions
+                  loadOptions={loadOptions}
+                  defaultOptions
+                  onInputChange={handleInputChange}
+                  onChange={onChange}
+                  components={{ Option: CountriesItem }}
+                  className='searchBox'
+                  autoFocus={true}
+                  isClearable={true}
+                  // menuIsOpen={true}
+                />
+                <p className='lastUpdate'>
+                  <i className='far fa-clock' />
+                  Last update:
+                  <span>
+                    {currentCountry !== null &&
+                      moment(currentCountry.updated).fromNow()}
+                    .
+                  </span>
+                </p>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-    </div>
+        </div>
+      </Row>
+    </Container>
   );
 };
 

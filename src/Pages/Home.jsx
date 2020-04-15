@@ -1,15 +1,14 @@
 import React, { Fragment } from 'react';
-import Container from 'react-bootstrap/Container';
 import Countries from '../Components/TopSection/Countries';
+import MidSectionContainer from '../Components/MidSection/MidSectionContainer';
 import Navbar from '../Layouts/Navbar';
 
 const Home = () => {
   return (
     <Fragment>
       <Navbar />
-      <Container>
         <Countries />
-      </Container>
+        <MidSectionContainer />
     </Fragment>
   );
 };

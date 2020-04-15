@@ -82,7 +82,7 @@ code {
 }
 /* Navbar END */
 
-/* Countries */
+/* Countries Section */
 .countriesSection {
   position: relative;
   box-sizing: border-box;
@@ -157,4 +157,27 @@ code {
 .lastUpdate span {
   color: rgb(0, 165, 82);
   margin-left: 5px;
+}
+
+/* Mid Section */
+.MidSection {
+  width: 100%;
+  height: 500px;
+  background-color: thistle;
+  margin-top: 20px;
+}
+
+.currentCountryStates {
+  height: fit-content;
+  border: 1px rgb(231, 231, 231) solid;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.AllCountriesList {
+  height: fit-content;
+  border: 1px rgb(231, 231, 231) solid;
+  border-radius: 5px;
+  margin: 10px;
+
 }
