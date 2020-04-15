@@ -58,7 +58,7 @@ const ContriesListItem = ({
             </Tooltip>
           }>
           <div className='Deaths'>
-          <i class="fas fa-skull"></i>
+            <i className='fas fa-skull'></i>
             {deaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
             {todayDeaths > 0 && (
               <span className='todayResults'>
@@ -80,7 +80,7 @@ const ContriesListItem = ({
             </Tooltip>
           }>
           <div className='Recovered'>
-          <i class="fas fa-hospital-user"></i>
+            <i className='fas fa-hospital-user'></i>
             {recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
           </div>
         </OverlayTrigger>
