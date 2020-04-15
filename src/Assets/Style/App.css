@@ -232,31 +232,32 @@ code {
   margin: 5px auto;
   text-align: center;
   display: block;
-  font-weight: 900;
+  font-weight: 600;
+  font-size: .9em;
 }
 
 .Cases {
-  color: rgb(151, 151, 151);
+  color: rgb(78, 78, 78);
   display: inline-block;
   text-align: center;
 }
 
 .Cases i {
   display: block;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   margin: 5px 0;
 }
 
 .Deaths {
-  color: rgb(255, 0, 43);
+  color: rgb(240, 62, 92);
   display: inline-block;
   text-align: center;
-  margin: 0 10px 0 15px !important;
+  margin: 0 15px 0 20px !important;
 }
 
 .Deaths i {
   display: block;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   margin: 5px 0;
 }
 
@@ -264,29 +265,29 @@ code {
   color: rgb(0, 190, 79);
   display: inline-block;
   text-align: center;
-  margin: 0 15px 0 10px !important;
+  margin: 0 20px 0 15px !important;
 }
 
 .Recovered i {
   display: block;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   margin: 5px 0;
 }
 
 .Tests {
-  color: rgb(173, 73, 255);
+  color: rgb(73, 76, 255);
   display: inline-block;
   text-align: center;
 }
 
 .Tests i {
   display: block;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   margin: 5px 0;
 }
 
 .todayResults {
-  color: rgba(255, 52, 103, 0.788);
+  color: rgba(255, 0, 64, 0.788);
   margin-left: 3px;
   font-size: 0.6rem;
   vertical-align: middle;
