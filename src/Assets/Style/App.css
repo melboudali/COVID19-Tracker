@@ -224,3 +224,88 @@ code {
 .CountryListItem i {
   margin-right: 5px;
 }
+
+/* Cases/ Deaths/ Recovered/ Tests */
+.CDR {
+  display: block;
+  box-sizing: border-box;
+  margin: 5px auto;
+  text-align: center;
+  display: block;
+  font-weight: 900;
+}
+
+.Cases {
+  color: rgb(151, 151, 151);
+  display: inline-block;
+  text-align: center;
+}
+
+.Cases i {
+  display: block;
+  font-size: 1.6rem;
+  margin: 5px 0;
+}
+
+.Deaths {
+  color: rgb(255, 0, 43);
+  display: inline-block;
+  text-align: center;
+  margin: 0 10px 0 15px !important;
+}
+
+.Deaths i {
+  display: block;
+  font-size: 1.6rem;
+  margin: 5px 0;
+}
+
+.Recovered {
+  color: rgb(0, 190, 79);
+  display: inline-block;
+  text-align: center;
+  margin: 0 15px 0 10px !important;
+}
+
+.Recovered i {
+  display: block;
+  font-size: 1.6rem;
+  margin: 5px 0;
+}
+
+.Tests {
+  color: rgb(173, 73, 255);
+  display: inline-block;
+  text-align: center;
+}
+
+.Tests i {
+  display: block;
+  font-size: 1.6rem;
+  margin: 5px 0;
+}
+
+.todayResults {
+  color: rgba(255, 52, 103, 0.788);
+  margin-left: 3px;
+  font-size: 0.6rem;
+  vertical-align: middle;
+}
+
+.lastUpdateList {
+  text-align: left;
+  margin: 5px 0 0 0 !important;
+  color: rgb(160, 160, 160);
+  font-size: 0.8rem;
+  font-weight: 400 !important;
+}
+
+/* Last Update */
+.lastUpdateList i {
+  margin-right: 5px;
+}
+
+.lastUpdateList span {
+  color: rgb(0, 165, 82);
+  margin-left: 5px;
+}

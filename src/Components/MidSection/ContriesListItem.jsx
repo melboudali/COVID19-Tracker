@@ -15,8 +15,7 @@ const ContriesListItem = ({
     active,
     critical,
     tests
-  },
-  id
+  }
 }) => {
   return (
     <div className='CountryListItem'>
@@ -25,18 +24,32 @@ const ContriesListItem = ({
         <p className='CountryName'>{country}</p>
       </div>
 
-      <div className='cases'>
-        <p>
-          <i className='fas fa-users'></i> {cases}+{todayCases} |
+      <div className='CDR'>
+        <div className='Cases'>
+          <i className='fas fa-users'></i>
+          {cases.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+          <span className='todayResults'>
+            +{todayCases.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+          </span>
+        </div>
+        <div className='Deaths'>
           <i className='fas fa-skull-crossbones'></i>
-          {deaths}+{todayDeaths} | <i className='far fa-grin-beam-sweat'></i>
-          {recovered} | <i className='fas fa-syringe'></i>
-          {tests}
-        </p>
-        <p className='lastUpdate'>
+          {deaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+          <span className='todayResults'>
+            +{todayDeaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+          </span>
+        </div>
+        <div className='Recovered'>
+          <i className='far fa-grin-beam-sweat'></i>
+          {recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+        </div>
+        <div className='Tests'>
+          <i className='fas fa-syringe'></i>
+          {tests.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+        </div>
+        <p className='lastUpdateList'>
           <i className='far fa-clock' />
-          Last update:
-          <span>{moment(updated).fromNow()}.</span>
+          Last update:<span>{moment(updated).fromNow()}.</span>
         </p>
       </div>
     </div>
