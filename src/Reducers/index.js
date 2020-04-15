@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-// import LogReducer from './LogReducer';
-// import TechReducer from './TechReducer';
+import Countries from './CountriesR';
 
-export default combineReducers({  });
+export default combineReducers({Data: Countries  });

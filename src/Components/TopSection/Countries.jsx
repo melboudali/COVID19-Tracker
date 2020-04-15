@@ -1,47 +1,88 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getCountries } from '../../Actions/CountriesA';
 import AsyncSelect from 'react-select/async';
+import CountriesItem from './CountriesItem';
+import PropTypes from 'prop-types';
+import Spinner from 'react-bootstrap/Spinner';
 
-const Countries = () => {
-  const [, setInputValue] = useState('');
+const Countries = ({
+  countriesData: { allCountries, loading },
+  getCountries
+}) => {
+  useEffect(() => {
+    getCountries();
+  }, [getCountries]);
 
-  const colourOptions = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-  ];
+  const [inputValue, setInputValue] = useState('');
 
-  const filterColors = inputValue => {
-    return colourOptions.filter(i =>
-      i.label.toLowerCase().includes(inputValue.toLowerCase())
-    );
+  const filterCountrie = inputValue => {
+    if (!loading && allCountries !== null)
+      return allCountries.filter(c =>
+        c.country.toLowerCase().includes(inputValue.toLowerCase())
+      );
   };
 
   const loadOptions = (inputValue, callback) => {
     setTimeout(() => {
-      callback(filterColors(inputValue));
+      callback(filterCountrie(inputValue));
     }, 1000);
   };
 
-  const handleInputChange = newValue => {
-    const inputValue = newValue.replace(/\W/g, '');
-    setInputValue({ inputValue });
+  const handleInputChange = e => {
+    const inputValue = e.country.toLowerCase().replace(/\W/g, '');
+    setInputValue(inputValue);
     return inputValue;
   };
 
   return (
     <div className='countriesSection'>
       <div className='countriesDopdown'>
-        <AsyncSelect
-          placeholder="Search or Select Countrie ..."
-          cacheOptions
-          loadOptions={loadOptions}
-          defaultOptions
-          onInputChange={handleInputChange}
-          className='searchBox'
-        />
+        <p>Selected Country: {`${inputValue}`}</p>
+        {loading || allCountries === null ? (
+          <Spinner animation='border' role='status' variant='success'>
+            <span className='sr-only'>Loading...</span>
+          </Spinner>
+        ) : (
+          <AsyncSelect
+            placeholder='Search or Select Countrie ...'
+            options={allCountries}
+            getOptionLabel={option => {
+              return (
+                <div>
+                  <img
+                    src={option.countryInfo.flag}
+                    className='flag'
+                    alt={option.country}
+                  />
+                  {`${option.country}`}
+                </div>
+              );
+            }}
+            getOptionValue={option => 'Zebi'}
+            cacheOptions
+            loadOptions={loadOptions}
+            defaultOptions
+            onChange={handleInputChange}
+            components={{ Option: CountriesItem }}
+            className='searchBox'
+            autoFocus={true}
+            isClearable={true}
+          />
+        )}
       </div>
     </div>
   );
 };
 
-export default Countries;
+Countries.prototype = {
+  allCountries: PropTypes.object,
+  loading: PropTypes.bool.isRequired,
+  getCountries: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  countriesData: state.Data
+});
+
+export default connect(mapStateToProps, { getCountries })(Countries);
