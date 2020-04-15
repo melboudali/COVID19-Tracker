@@ -1,4 +1,9 @@
-import { GET_COUNTRIES, SET_LOADING, COUNTRIES_ERROR } from './Types';
+import {
+  GET_COUNTRIES,
+  SET_CURRENT,
+  SET_LOADING,
+  COUNTRIES_ERROR
+} from './Types';
 
 // Get All Countries
 export const getCountries = () => async dispatch => {
@@ -9,6 +14,10 @@ export const getCountries = () => async dispatch => {
   } catch (err) {
     dispatch({ type: COUNTRIES_ERROR, payload: err.message });
   }
+};
+
+export const setCurrent = country => {
+  return { type: SET_CURRENT, payload: country };
 };
 
 export const setLoading = () => {

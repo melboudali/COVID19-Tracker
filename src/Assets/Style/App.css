@@ -10,31 +10,12 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Varela Round', 'Segoe UI',
-    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-    'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.App {
-  text-align: center;
-  background-color: rgb(75, 0, 146);
-  height: 100vh;
-}
-
-.App h1 {
-  color: #eee;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
 
 /* Navbar */
@@ -159,4 +140,21 @@ code {
 .flag {
   width: 23px;
   margin-right: 10px;
+}
+
+/* Last Update */
+.lastUpdate {
+  text-align: left;
+  margin-top: 10px;
+  color: rgb(160, 160, 160);
+  font-size: 0.8rem;
+}
+
+.lastUpdate i {
+  margin-right: 5px;
+}
+
+.lastUpdate span {
+  color: rgb(0, 165, 82);
+  margin-left: 5px;
 }

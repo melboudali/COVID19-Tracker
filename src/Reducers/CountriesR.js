@@ -1,7 +1,13 @@
-import { GET_COUNTRIES, SET_LOADING, COUNTRIES_ERROR } from '../Actions/Types';
+import {
+  GET_COUNTRIES,
+  SET_CURRENT,
+  SET_LOADING,
+  COUNTRIES_ERROR
+} from '../Actions/Types';
 
 const initialState = {
   allCountries: null,
+  currentCountry: null,
   loading: false,
   error: null
 };
@@ -11,6 +17,8 @@ export default (state = initialState, action) => {
     case GET_COUNTRIES:
       return { ...state, allCountries: action.payload, loading: false };
 
+    case SET_CURRENT:
+      return { ...state, currentCountry: action.payload };
     case SET_LOADING:
       return { ...state, loading: true };
 
