@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getCountries, setCurrent } from '../../Actions/CountriesA';
+import {
+  getCountries,
+  setCurrent,
+  getHistoryCurrent
+} from '../../Actions/CountriesA';
 import moment from 'moment';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -12,7 +16,8 @@ import Spinner from 'react-bootstrap/Spinner';
 const Countries = ({
   countriesData: { allCountries, currentCountry, loading },
   getCountries,
-  setCurrent
+  setCurrent,
+  getHistoryCurrent
 }) => {
   useEffect(() => {
     getCountries();
@@ -68,6 +73,8 @@ const Countries = ({
         critical,
         tests
       });
+
+      getHistoryCurrent(country);
     }
   };
 
@@ -140,6 +147,8 @@ const mapStateToProps = state => ({
   countriesData: state.Data
 });
 
-export default connect(mapStateToProps, { getCountries, setCurrent })(
-  Countries
-);
+export default connect(mapStateToProps, {
+  getCountries,
+  setCurrent,
+  getHistoryCurrent
+})(Countries);

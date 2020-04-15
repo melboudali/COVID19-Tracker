@@ -185,6 +185,15 @@ code {
 }
 
 /* All Countries List */
+/* Spinner */
+.Spinner {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 /* List */
 .CountryListItem {
   width: 100%;
@@ -233,7 +242,7 @@ code {
   text-align: center;
   display: block;
   font-weight: 600;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 .Cases {

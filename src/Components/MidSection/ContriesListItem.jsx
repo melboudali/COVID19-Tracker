@@ -28,7 +28,7 @@ const ContriesListItem = ({
 
       <div className='CDR'>
         <OverlayTrigger
-          key='bottom'
+          key='Cases'
           placement='bottom'
           delay={{ show: 150, hide: 150 }}
           overlay={
@@ -51,7 +51,7 @@ const ContriesListItem = ({
         </OverlayTrigger>
 
         <OverlayTrigger
-          key='bottom'
+          key='Deaths'
           placement='bottom'
           delay={{ show: 150, hide: 150 }}
           overlay={
@@ -74,7 +74,7 @@ const ContriesListItem = ({
         </OverlayTrigger>
 
         <OverlayTrigger
-          key='bottom'
+          key='Recovered'
           placement='bottom'
           delay={{ show: 150, hide: 150 }}
           overlay={
@@ -89,7 +89,7 @@ const ContriesListItem = ({
         </OverlayTrigger>
 
         <OverlayTrigger
-          key='bottom'
+          key='Tests'
           placement='bottom'
           delay={{ show: 150, hide: 150 }}
           overlay={

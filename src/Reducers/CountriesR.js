@@ -1,6 +1,7 @@
 import {
   GET_COUNTRIES,
   SET_CURRENT,
+  GET_HiSTORY_CURRENT,
   SET_LOADING,
   COUNTRIES_ERROR
 } from '../Actions/Types';
@@ -8,6 +9,7 @@ import {
 const initialState = {
   allCountries: null,
   currentCountry: null,
+  currentHistory: null,
   loading: false,
   error: null
 };
@@ -18,7 +20,11 @@ export default (state = initialState, action) => {
       return { ...state, allCountries: action.payload, loading: false };
 
     case SET_CURRENT:
-      return { ...state, currentCountry: action.payload };
+      return { ...state, currentCountry: action.payload, loading: false };
+
+    case GET_HiSTORY_CURRENT:
+      return { ...state, currentHistory: action.payload, loading: false };
+
     case SET_LOADING:
       return { ...state, loading: true };
 
