@@ -92,7 +92,7 @@ code {
   border-radius: 5px;
   border: 1px rgb(231, 231, 231) solid;
   text-align: center;
-  z-index: 1;
+  z-index: 100;
 }
 
 .countriesDopdown {
@@ -201,7 +201,7 @@ code {
   background-color: rgb(250, 250, 250);
   margin: 2px 0 4px 0;
   border-radius: 5px;
-  border: 1px rgb(216, 216, 216) solid;
+  /* border: 1px rgb(216, 216, 216) solid; */
   background-position: left !important;
   background-repeat: no-repeat !important;
   background-size: contain !important;

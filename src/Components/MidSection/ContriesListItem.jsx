@@ -30,7 +30,6 @@ const ContriesListItem = ({
         <OverlayTrigger
           key='Cases'
           placement='bottom'
-          delay={{ show: 150, hide: 150 }}
           overlay={
             <Tooltip className='myToolTip' id='tooltip-bottom'>
               Confirmed Cases
@@ -53,14 +52,13 @@ const ContriesListItem = ({
         <OverlayTrigger
           key='Deaths'
           placement='bottom'
-          delay={{ show: 150, hide: 150 }}
           overlay={
             <Tooltip className='myToolTip' id='tooltip-bottom'>
               Confirmed Deaths
             </Tooltip>
           }>
           <div className='Deaths'>
-            <i className='fas fa-skull-crossbones'></i>
+          <i class="fas fa-skull"></i>
             {deaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
             {todayDeaths > 0 && (
               <span className='todayResults'>
@@ -76,14 +74,13 @@ const ContriesListItem = ({
         <OverlayTrigger
           key='Recovered'
           placement='bottom'
-          delay={{ show: 150, hide: 150 }}
           overlay={
             <Tooltip className='myToolTip' id='tooltip-bottom'>
               Confirmed Recovered
             </Tooltip>
           }>
           <div className='Recovered'>
-            <i className='far fa-grin-beam-sweat'></i>
+          <i class="fas fa-hospital-user"></i>
             {recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
           </div>
         </OverlayTrigger>
@@ -91,14 +88,13 @@ const ContriesListItem = ({
         <OverlayTrigger
           key='Tests'
           placement='bottom'
-          delay={{ show: 150, hide: 150 }}
           overlay={
             <Tooltip className='myToolTip' id='tooltip-bottom'>
               Confirmed Tests
             </Tooltip>
           }>
           <div className='Tests'>
-            <i className='fas fa-syringe'></i>
+            <i className='fas fa-vial'></i>
             {tests.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
           </div>
         </OverlayTrigger>
