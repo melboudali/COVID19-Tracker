@@ -8,7 +8,7 @@ import CurrentCountryStats from './CurrentCountryStats';
 const MidSectionContainer = () => {
   return (
     <Container className='MidSection'>
-      <Row>
+      <Row >
         <Col xs='12' sm='12' md='6' lg='6' xl='6'>
           <div className='currentCountryStates'>
             <CurrentCountryStats />

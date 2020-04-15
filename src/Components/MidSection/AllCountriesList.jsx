@@ -8,9 +8,13 @@ const AllCountriesList = ({ countriesData: { allCountries, loading } }) => {
     <div>
       {allCountries !== null &&
         !loading &&
-        allCountries.map((country, id) => (
-          <ContriesListItem country={country} key={id} />
-        ))}
+        allCountries
+          .sort((a, b) => {
+            return b.cases - a.cases;
+          })
+          .map((country, id) => (
+            <ContriesListItem country={country} key={id} id={id}/>
+          ))}
     </div>
   );
 };
