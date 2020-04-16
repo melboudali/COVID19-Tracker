@@ -24,7 +24,7 @@ const Countries = ({
   }, [getCountries]);
 
   const [, setInputValue] = useState('');
-  const [SelectedCountry, SetSelectedCountry] = useState('');
+  const [, SetSelectedCountry] = useState('');
 
   const filterCountrie = inputValue => {
     if (!loading && allCountries !== null)
@@ -83,7 +83,7 @@ const Countries = ({
       <Row>
         <div className='countriesSection'>
           <div className='countriesDopdown'>
-            <p>Selected Country: {`${SelectedCountry}`}</p>
+            {/* <p>Selected Country: {`${SelectedCountry}`}</p> */}
             {loading || allCountries === null ? (
               <Spinner animation='border' role='status' variant='success'>
                 <span className='sr-only'>Loading...</span>

@@ -22,6 +22,11 @@ const CurrentCountryStats = ({
   const [getCases, setCases] = useState([]);
 
   const swapData = () => {
+    setCases([]);
+    myDate.length = 0;
+    cases.length = 0;
+    deaths.length = 0;
+    recovered.length = 0;
     for (let [key, value] of Object.entries(currentHistory.timeline.cases)) {
       let data = { date: `Day: ${key}`, Cases: `${value}` };
       cases.push(data);
@@ -67,6 +72,7 @@ const CurrentCountryStats = ({
       ) : (
         <ResponsiveContainer width='100%' height={400}>
           <AreaChart
+            key={Math.floor(Math.random() * 100)}
             data={getCases}
             margin={{
               top: 10,

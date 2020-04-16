@@ -2,7 +2,6 @@ import {
   GET_COUNTRIES,
   SET_CURRENT,
   GET_HiSTORY_CURRENT,
-  SWAP_DATA,
   SET_LOADING,
   COUNTRIES_ERROR
 } from '../Actions/Types';
@@ -26,13 +25,6 @@ export default (state = initialState, action) => {
 
     case GET_HiSTORY_CURRENT:
       return { ...state, currentHistory: action.payload, loading: false };
-
-    case SWAP_DATA:
-      return {
-        ...state,
-        historyData: [...state.historyData, ...action.payload],
-        loading: false
-      };
 
     case SET_LOADING:
       return { ...state, loading: true };
