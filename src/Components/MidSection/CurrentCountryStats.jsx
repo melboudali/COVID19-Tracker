@@ -1,126 +1,109 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import Spinner from 'react-bootstrap/Spinner';
 import {
   AreaChart,
   Area,
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip
+  Tooltip,
+  ResponsiveContainer
 } from 'recharts';
 import PropTypes from 'prop-types';
 
-const CurrentCountryStats = ({ countriesData: { currentHistory } }) => {
+const CurrentCountryStats = ({
+  countriesData: { currentHistory, loading }
+}) => {
   let myDate = [];
   let cases = [];
   let deaths = [];
   let recovered = [];
   const [getCases, setCases] = useState([]);
 
-  useEffect(() => {
-    if (currentHistory !== null) {
-      for (let [key, value] of Object.entries(currentHistory.timeline.cases)) {
-        let data = { date: `${key}`, cases: `${value}` };
-        cases.push(data);
-      }
-      for (let [key, value] of Object.entries(currentHistory.timeline.deaths)) {
-        let data = { date: `${key}`, deaths: `${value}` };
-        deaths.push(data);
-      }
-      for (let [key, value] of Object.entries(
-        currentHistory.timeline.recovered
-      )) {
-        let data = { date: `${key}`, recovered: `${value}` };
-        recovered.push(data);
-      }
-      setCases([...getCases, ...cases]);
+  const swapData = () => {
+    for (let [key, value] of Object.entries(currentHistory.timeline.cases)) {
+      let data = { date: `Day: ${key}`, Cases: `${value}` };
+      cases.push(data);
     }
-  }, [currentHistory]);
+    for (let [key, value] of Object.entries(currentHistory.timeline.deaths)) {
+      let data = { date: `Day: ${key}`, Deaths: `${value}` };
+      deaths.push(data);
+    }
+    for (let [key, value] of Object.entries(
+      currentHistory.timeline.recovered
+    )) {
+      let data = { date: `Day: ${key}`, Recovered: `${value}` };
+      recovered.push(data);
+    }
+    if (cases.length > 0 && deaths.length > 0 && recovered.length > 0) {
+      for (let c = 0; c < cases.length; c++) {
+        myDate.push({
+          date: cases[c].date,
+          Cases: cases[c].Cases,
+          Deaths: deaths[c].Deaths,
+          Recovered: recovered[c].Recovered
+        });
+      }
+      setCases([...getCases, ...myDate]);
+    }
+  };
 
-  const data = [
-    {
-      name: 'Page A',
-      uv: 4000,
-      pv: 2400,
-      amt: 2400
-    },
-    {
-      name: 'Page B',
-      uv: 3000,
-      pv: 1398,
-      amt: 2210
-    },
-    {
-      name: 'Page C',
-      uv: 2000,
-      pv: 9800,
-      amt: 2290
-    },
-    {
-      name: 'Page D',
-      uv: 2780,
-      pv: 3908,
-      amt: 2000
-    },
-    {
-      name: 'Page E',
-      uv: 1890,
-      pv: 4800,
-      amt: 2181
-    },
-    {
-      name: 'Page F',
-      uv: 2390,
-      pv: 3800,
-      amt: 2500
-    },
-    {
-      name: 'Page G',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100
+  useEffect(() => {
+    if (currentHistory !== null && !loading) {
+      swapData();
     }
-  ];
+    // eslint-disable-next-line
+  }, [currentHistory, loading]);
 
   return (
     <div>
-      {getCases.length > 0 && (
-        <AreaChart
-          width={500}
-          height={400}
-          data={(cases, deaths, recovered)}
-          margin={{
-            top: 0,
-            right: 0,
-            left: 0,
-            bottom: 0
-          }}>
-          <CartesianGrid strokeDasharray='3 3' />
-          <XAxis dataKey='date' />
-          <YAxis />
-          <Tooltip />
-          <Area
-            type='monotone'
-            dataKey='cases'
-            stackId='1'
-            stroke='#8884d8'
-            fill='#8884d8'
-          />
-          <Area
-            type='monotone'
-            dataKey='deaths'
-            stackId='1'
-            stroke='#82ca9d'
-            fill='#82ca9d'
-          />
-          <Area
-            type='monotone'
-            dataKey='recovered'
-            stackId='1'
-            stroke='#ffc658'
-            fill='#ffc658'
-          />
-        </AreaChart>
+      {getCases.length === 0 || loading ? (
+        <div className='Spinner'>
+          <Spinner animation='border' role='status' variant='success'>
+            <span className='sr-only'>Loading...</span>
+          </Spinner>
+        </div>
+      ) : (
+        <ResponsiveContainer width='100%' height={400}>
+          <AreaChart
+            data={getCases}
+            margin={{
+              top: 10,
+              right: 10,
+              left: 10,
+              bottom: 10
+            }}>
+            <CartesianGrid strokeDasharray='3 3' />
+            <XAxis dataKey='date' />
+            <YAxis />
+            <Tooltip />
+            <Area
+              type='monotone'
+              dataKey='Recovered'
+              stackId='1'
+              stroke='#388E3C'
+              fill='#4CAF50'
+              fillOpacity={1}
+            />
+            <Area
+              type='monotone'
+              dataKey='Deaths'
+              stackId='1'
+              stroke='#9c2c2c'
+              fill='#E44E4E'
+              fillOpacity={1}
+            />
+            <Area
+              type='monotone'
+              dataKey='Cases'
+              stackId='1'
+              stroke='#A3320B'
+              fill='#E6AF2E'
+              fillOpacity={1}
+            />
+          </AreaChart>
+        </ResponsiveContainer>
       )}
     </div>
   );
