@@ -4,7 +4,9 @@ import ContriesListItem from './ContriesListItem';
 import Spinner from 'react-bootstrap/Spinner';
 import PropTypes from 'prop-types';
 
-const AllCountriesList = ({ countriesData: { allCountries, loading } }) => {
+const AllCountriesList = ({
+  countriesData: { allCountries, sortedCountriesByCases, loading }
+}) => {
   return (
     <div>
       {allCountries === null || loading ? (
@@ -14,20 +16,18 @@ const AllCountriesList = ({ countriesData: { allCountries, loading } }) => {
           </Spinner>
         </div>
       ) : (
-        allCountries
-          .sort((a, b) => {
-            return b.cases - a.cases;
-          })
-          .map((country, id) => (
-            <ContriesListItem country={country} key={id} id={id} />
-          ))
+        sortedCountriesByCases.map((country, id) => (
+          <ContriesListItem country={country} key={id} id={id} />
+        ))
       )}
     </div>
   );
 };
 
 AllCountriesList.prototype = {
-  countriesData: PropTypes.array
+  countriesData: PropTypes.array,
+  sortedCountriesByCases: PropTypes.array,
+  loading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({

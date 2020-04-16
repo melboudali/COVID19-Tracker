@@ -8,6 +8,7 @@ import {
 
 const initialState = {
   allCountries: null,
+  sortedCountriesByCases: null,
   currentCountry: null,
   currentHistory: null,
   historyData: null,
@@ -18,7 +19,12 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case GET_COUNTRIES:
-      return { ...state, allCountries: action.payload, loading: false };
+      return {
+        ...state,
+        allCountries: action.payload.allCountries,
+        sortedCountriesByCases: action.payload.sortedCountriesByCases,
+        loading: false
+      };
 
     case SET_CURRENT:
       return { ...state, currentCountry: action.payload, loading: false };

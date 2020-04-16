@@ -26,10 +26,17 @@ const GlobalMap = ({ countriesData: { allCountries, loading } }) => {
   };
 
   useEffect(() => {
-    if (allCountries !== null && !loading) {
+    if (allCountries !== null && !loading && getCountriesData.length>0) {
       MapDataHandler();
+      chartComp();
     }
-    if (getCountriesData.length > 0 && !loading) {
+  }, [allCountries, loading]);
+
+  useEffect(() => {
+    if (chart) chart.disose();
+  });
+
+  const chartComp = () => {
       let chart = am4core.create('chartdiv', am4maps.MapChart);
       // let title = chart.titles.create();
       // title.text =
@@ -1086,12 +1093,7 @@ const GlobalMap = ({ countriesData: { allCountries, loading } }) => {
         }
         return longitude;
       });
-    }
-  }, [allCountries, loading]);
-
-  useEffect(() => {
-    if (chart) chart.disose();
-  });
+  };
 
   return (
     <div>
