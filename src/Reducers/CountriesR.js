@@ -8,9 +8,9 @@ import {
 
 const initialState = {
   allCountries: null,
-  sortedCountriesByCases: null,
+  allCountriesByCases: null,
   currentCountry: null,
-  currentHistory: null,
+  currentCountryHistory: null,
   historyData: null,
   loading: false,
   error: null
@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         allCountries: action.payload.allCountries,
-        sortedCountriesByCases: action.payload.sortedCountriesByCases,
+        allCountriesByCases: action.payload.sortedCountriesByCases,
         loading: false
       };
 
@@ -30,7 +30,7 @@ export default (state = initialState, action) => {
       return { ...state, currentCountry: action.payload, loading: false };
 
     case GET_HiSTORY_CURRENT:
-      return { ...state, currentHistory: action.payload, loading: false };
+      return { ...state, currentCountryHistory: action.payload, loading: false };
 
     case SET_LOADING:
       return { ...state, loading: true };
