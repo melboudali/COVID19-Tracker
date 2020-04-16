@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import AllCountriesList from './AllCountriesList';
 import CurrentCountryStats from './CurrentCountryStats';
-import GlobalMap from './GlobalMap';
+import GlobalMap from '../Map/GlobalMap';
 
 const MidSectionContainer = () => {
   return (
