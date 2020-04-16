@@ -12,6 +12,7 @@ import AsyncSelect from 'react-select/async';
 import CountriesItem from './CountriesItem';
 import PropTypes from 'prop-types';
 import Spinner from 'react-bootstrap/Spinner';
+import Col from 'react-bootstrap/Col';
 
 const Countries = ({
   countriesData: { allCountries, currentCountry, loading },
@@ -81,55 +82,57 @@ const Countries = ({
   return (
     <Container>
       <Row>
-        <div className='countriesSection'>
-          <div className='countriesDopdown'>
-            {/* <p>Selected Country: {`${SelectedCountry}`}</p> */}
-            {loading || allCountries === null ? (
-              <Spinner animation='border' role='status' variant='success'>
-                <span className='sr-only'>Loading...</span>
-              </Spinner>
-            ) : (
-              <div>
-                <AsyncSelect
-                  placeholder='Search or Select Countrie ...'
-                  options={allCountries}
-                  getOptionLabel={option => {
-                    return (
-                      <div>
-                        <img
-                          src={option.countryInfo.flag}
-                          className='flag'
-                          alt={option.country}
-                        />
-                        {`${option.country}`}
-                      </div>
-                    );
-                  }}
-                  getOptionValue={option => option}
-                  cacheOptions
-                  loadOptions={loadOptions}
-                  defaultOptions
-                  onInputChange={handleInputChange}
-                  onChange={onChange}
-                  components={{ Option: CountriesItem }}
-                  className='searchBox'
-                  autoFocus={true}
-                  isClearable={true}
-                  // menuIsOpen={true}
-                />
-                <p className='lastUpdate'>
-                  <i className='far fa-clock' />
-                  Last update:
-                  <span>
-                    {currentCountry !== null &&
-                      moment(currentCountry.updated).fromNow()}
-                    .
-                  </span>
-                </p>
-              </div>
-            )}
+        <Col xs='12' sm='12' md='12' lg='12' xl='12'>
+          <div className='countriesSection'>
+            <div className='countriesDopdown'>
+              {/* <p>Selected Country: {`${SelectedCountry}`}</p> */}
+              {loading || allCountries === null ? (
+                <Spinner animation='border' role='status' variant='success'>
+                  <span className='sr-only'>Loading...</span>
+                </Spinner>
+              ) : (
+                <div>
+                  <AsyncSelect
+                    placeholder='Search or Select Countrie ...'
+                    options={allCountries}
+                    getOptionLabel={option => {
+                      return (
+                        <div>
+                          <img
+                            src={option.countryInfo.flag}
+                            className='flag'
+                            alt={option.country}
+                          />
+                          {`${option.country}`}
+                        </div>
+                      );
+                    }}
+                    getOptionValue={option => option}
+                    cacheOptions
+                    loadOptions={loadOptions}
+                    defaultOptions
+                    onInputChange={handleInputChange}
+                    onChange={onChange}
+                    components={{ Option: CountriesItem }}
+                    className='searchBox'
+                    autoFocus={true}
+                    isClearable={true}
+                    // menuIsOpen={true}
+                  />
+                  <p className='lastUpdate'>
+                    <i className='far fa-clock' />
+                    Last update:
+                    <span>
+                      {currentCountry !== null &&
+                        moment(currentCountry.updated).fromNow()}
+                      .
+                    </span>
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        </Col>
       </Row>
     </Container>
   );
