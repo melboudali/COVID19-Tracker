@@ -12,7 +12,6 @@ const CurrentCountryStats = ({
   const chartContainer = useRef(null);
   const [chartInstance, setChartInstance] = useState(null);
 
-
   return (
     // <canvas id='chartJS' />
     <>
@@ -30,7 +29,7 @@ const CurrentCountryStats = ({
             datasets: [
               {
                 // radius: 0,
-                label: 'Cases',
+                label: "Cases",
                 data: Cases,
                 fill: false,
                 borderColor: '#fca903',
@@ -56,7 +55,19 @@ const CurrentCountryStats = ({
             responsive: true,
             maintainAspectRatio: false,
             tooltips: {
-              enabled: true
+              enabled: true,
+              callbacks: {
+                label: (tooltipItem, data) => {
+                  var label =
+                    data.datasets[tooltipItem.datasetIndex].label || '';
+
+                  if (label) {
+                    label += ':';
+                  }
+                  label += Math.round(tooltipItem.yLabel * 100) / 100;
+                  return label;
+                }
+              }
             },
             scales: {
               xAxes: [

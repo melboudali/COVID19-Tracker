@@ -64,10 +64,6 @@ code {
 }
 
 /* ToolTip */
-.myToolTip{
-  z-index: 1 !important;
-}
-
 .myToolTip .fa-github-square {
   color: rgb(255, 255, 255) !important;
 }
