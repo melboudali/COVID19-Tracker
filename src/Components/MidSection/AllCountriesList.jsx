@@ -5,18 +5,22 @@ import Spinner from 'react-bootstrap/Spinner';
 import PropTypes from 'prop-types';
 
 const AllCountriesList = ({
-  countriesData: { allCountries, allCountriesByCases, loading }
+  AllCountriesData: {
+    allCountriesData,
+    allCountriesSortedByCases,
+    allCountriesloading
+  }
 }) => {
   return (
     <div>
-      {allCountries === null || loading ? (
+      {allCountriesData === null || allCountriesloading ? (
         <div className='Spinner'>
           <Spinner animation='border' role='status' variant='success'>
             <span className='sr-only'>Loading...</span>
           </Spinner>
         </div>
       ) : (
-        allCountriesByCases.map((country, id) => (
+        allCountriesSortedByCases.map((country, id) => (
           <ContriesListItem country={country} key={id} id={id} />
         ))
       )}
@@ -25,13 +29,13 @@ const AllCountriesList = ({
 };
 
 AllCountriesList.prototype = {
-  countriesData: PropTypes.array,
-  allCountriesByCases: PropTypes.array,
-  loading: PropTypes.bool.isRequired
+  allCountriesData: PropTypes.array,
+  allCountriesSortedByCases: PropTypes.array,
+  allCountriesloading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({
-  countriesData: state.Data
+  AllCountriesData: state.AllCountries
 });
 
 export default connect(mapStateToProps)(AllCountriesList);

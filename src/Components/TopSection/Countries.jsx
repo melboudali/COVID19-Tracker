@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import {
-  getCountries,
-  setCurrent,
-  getHistoryCurrent
-} from '../../Actions/CountriesA';
+import { getAllCountries } from '../../Actions/Countries';
+import { setCurrentCountry } from '../../Actions/CurrentCountry';
+import { getCurrentHistory } from '../../Actions/DataHistory';
 import moment from 'moment';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -15,21 +13,20 @@ import Spinner from 'react-bootstrap/Spinner';
 import Col from 'react-bootstrap/Col';
 
 const Countries = ({
-  countriesData: { allCountries, currentCountry, loading },
-  getCountries,
-  setCurrent,
-  getHistoryCurrent
+  AllCountriesData: { allCountriesData, allCountriesloading },
+  getAllCountries,
+  setCurrentCountry
 }) => {
   useEffect(() => {
-    getCountries();
-  }, [getCountries]);
+    getAllCountries();
+  }, [getAllCountries]);
 
   const [, setInputValue] = useState('');
-  const [, SetSelectedCountry] = useState('');
+  const [getSelectedCountry, SetSelectedCountry] = useState('');
 
   const filterCountrie = inputValue => {
-    if (!loading && allCountries !== null)
-      return allCountries.filter(c =>
+    if (!allCountriesloading && allCountriesData !== null)
+      return allCountriesData.filter(c =>
         c.country.toLowerCase().includes(inputValue.toLowerCase())
       );
   };
@@ -59,9 +56,10 @@ const Countries = ({
         critical,
         tests
       } = e;
-      SetSelectedCountry(country);
+      // TODO: Change this state Later
+      SetSelectedCountry({ country, updated });
       //   Set Current country
-      setCurrent({
+      setCurrentCountry({
         updated,
         country,
         flag,
@@ -75,7 +73,7 @@ const Countries = ({
         tests
       });
 
-      getHistoryCurrent(country);
+      getCurrentHistory(country);
     }
   };
 
@@ -86,7 +84,7 @@ const Countries = ({
           <div className='countriesSection'>
             <div className='countriesDopdown'>
               {/* <p>Selected Country: {`${SelectedCountry}`}</p> */}
-              {loading || allCountries === null ? (
+              {allCountriesloading || allCountriesData === null ? (
                 <Spinner animation='border' role='status' variant='success'>
                   <span className='sr-only'>Loading...</span>
                 </Spinner>
@@ -94,7 +92,7 @@ const Countries = ({
                 <div>
                   <AsyncSelect
                     placeholder='Search or Select Countrie ...'
-                    options={allCountries}
+                    options={allCountriesData}
                     getOptionLabel={option => {
                       return (
                         <div>
@@ -123,8 +121,8 @@ const Countries = ({
                     <i className='far fa-clock' />
                     Last update:
                     <span>
-                      {currentCountry !== null &&
-                        moment(currentCountry.updated).fromNow()}
+                      {getSelectedCountry !== '' &&
+                        moment(getSelectedCountry.updated).fromNow()}
                       .
                     </span>
                   </p>
@@ -139,19 +137,18 @@ const Countries = ({
 };
 
 Countries.prototype = {
-  allCountries: PropTypes.object,
-  loading: PropTypes.bool.isRequired,
-  currentCountry: PropTypes.object,
-  getCountries: PropTypes.func.isRequired,
-  setCurrent: PropTypes.func.isRequired
+  allCountriesData: PropTypes.object,
+  allCountriesloading: PropTypes.bool.isRequired,
+  getAllCountries: PropTypes.func.isRequired,
+  setCurrentCountry: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  countriesData: state.Data
+  AllCountriesData: state.AllCountries
 });
 
 export default connect(mapStateToProps, {
-  getCountries,
-  setCurrent,
-  getHistoryCurrent
+  getAllCountries,
+  setCurrentCountry,
+  getCurrentHistory
 })(Countries);

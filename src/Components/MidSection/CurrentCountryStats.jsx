@@ -5,10 +5,11 @@ import Spinner from 'react-bootstrap/Spinner';
 import PropTypes from 'prop-types';
 
 const CurrentCountryStats = ({
-  countriesData: { currentCountryHistory, currentCountry, loading }
+  CurrentCountryData: { currentCountry, currentCountryLoading }
 }) => {
   const chartContainer = useRef(null);
   const [chartInstance, setChartInstance] = useState(null);
+
   let date = [];
   let myCases = [];
   let myDeaths = [];
@@ -16,96 +17,88 @@ const CurrentCountryStats = ({
   let newChartInstance = null;
 
   const swapData = () => {
-    for (let [key, value] of Object.entries(
-      currentCountryHistory.timeline.cases
-    )) {
+    for (let [key, value] of Object.entries(currentCountry.timeline.cases)) {
       let newDate = key.split('/');
       date.push(`${newDate[1]}/${newDate[0]}`);
       myCases.push(value);
     }
-    for (let [key, value] of Object.entries(
-      currentCountryHistory.timeline.deaths
-    )) {
+    for (let [key, value] of Object.entries(currentCountry.timeline.deaths)) {
       myDeaths.push(value);
     }
-    for (let [key, value] of Object.entries(
-      currentCountryHistory.timeline.recovered
-    )) {
+    for (let [key, value] of Object.entries(currentCountry.timeline.recovered)) {
       myRecovered.push(value);
     }
   };
 
   useEffect(() => {
-    if (currentCountryHistory !== null && !loading) {
+    if (currentCountry !== null && !currentCountryLoading) {
       swapData();
-      if (myCases.length > 0) {
-        console.log(myCases);
-        newChartInstance = new Chart('chartJS', {
-          type: 'line',
+      newChartInstance = new Chart('chartJS', {
+        type: 'line',
 
-          data: {
-            //Bring in data
-            labels: date,
-            datasets: [
+        data: {
+          //Bring in data
+          labels: date,
+          datasets: [
+            {
+              // radius: 0,
+              label: 'Cases',
+              data: myCases,
+              fill: false,
+              borderColor: '#fca903',
+              backgroundColor: '#fca903'
+            },
+            {
+              // radius: 0,
+              label: 'Deaths',
+              data: myDeaths,
+              fill: false,
+              borderColor: '#d14356',
+              backgroundColor: '#d14356'
+            },
+            {
+              // radius: 0,
+              label: 'Recovered',
+              data: myRecovered,
+              fill: false,
+              borderColor: '#49d170',
+              backgroundColor: '#49d170'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          aspectRatio: 4,
+          maintainAspectRatio: false,
+          tooltips: {
+            enabled: true
+          },
+          scales: {
+            xAxes: [
               {
-                // radius: 0,
-                label: 'Cases',
-                data: myCases,
-                fill: false,
-                borderColor: '#fca903',
-                backgroundColor: '#fca903'
-              },
+                gridLines: {
+                  display: false
+                }
+              }
+            ],
+            yAxes: [
               {
-                // radius: 0,
-                label: 'Deaths',
-                data: myDeaths,
-                fill: false,
-                borderColor: '#d14356',
-                backgroundColor: '#d14356'
-              },
-              {
-                // radius: 0,
-                label: 'Recovered',
-                data: myRecovered,
-                fill: false,
-                borderColor: '#49d170',
-                backgroundColor: '#49d170'
+                gridLines: {
+                  display: true
+                },
+                ticks: {
+                  beginAtZero: true
+                }
               }
             ]
-          },
-          options: {
-            responsive: true,
-            aspectRatio: 4,
-            maintainAspectRatio: false,
-            tooltips: {
-              enabled: true
-            },
-            scales: {
-              xAxes: [
-                {
-                  gridLines: {
-                    display: false
-                  }
-                }
-              ],
-              yAxes: [
-                {
-                  gridLines: {
-                    display: true
-                  },
-                  ticks: {
-                    beginAtZero: true
-                  }
-                }
-              ]
-            }
           }
-        });
-        setChartInstance(newChartInstance);
-      }
+        }
+      });
+      setChartInstance(newChartInstance);
     }
+
     // eslint-disable-next-line
-  }, [currentCountryHistory, loading, chartContainer]);
+  }, [currentCountry, currentCountryLoading, chartContainer]);
 
   return (
     <canvas id='chartJS' />
@@ -123,11 +116,11 @@ const CurrentCountryStats = ({
 };
 
 CurrentCountryStats.propTypes = {
-  currentCountryHistory: PropTypes.object
+  currentCountry: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-  countriesData: state.Data
+  CurrentCountryData: state.CurrentCountryData
 });
 
 export default connect(mapStateToProps)(CurrentCountryStats);

@@ -109,7 +109,7 @@ const ContriesListItem = ({
 };
 
 ContriesListItem.propTypes = {
-  props: PropTypes.object
+  country: PropTypes.object.isRequired
 };
 
 export default ContriesListItem;

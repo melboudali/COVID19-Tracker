@@ -1,4 +1,10 @@
 import { combineReducers } from 'redux';
-import Countries from './CountriesR';
+import AllCountries from './Countries';
+import CurrentCountryData from './CurrentCountry';
+import DateHistory from './DataHistory';
 
-export default combineReducers({Data: Countries  });
+export default combineReducers({
+  AllCountries,
+  CurrentCountryData,
+  DateHistory
+});
