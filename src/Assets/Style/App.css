@@ -64,6 +64,10 @@ code {
 }
 
 /* ToolTip */
+.myToolTip{
+  z-index: 1 !important;
+}
+
 .myToolTip .fa-github-square {
   color: rgb(255, 255, 255) !important;
 }
@@ -170,19 +174,29 @@ code {
 .currentCountryStates {
   height: 500px !important;
   width: 100% !important;
-  border: 1px rgb(231, 231, 231) solid;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
   border-radius: 5px;
   margin: 0px;
+  background-color: white;
+  margin: 2px 0;
 }
 
 .AllCountriesList {
   height: 500px !important;
-  border: 1px rgb(231, 231, 231) solid;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
   border-radius: 5px;
   height: 400px;
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 2px 4px;
+  background-color: white;
+  margin: 2px 0;
 }
 
 /* All Countries List */
@@ -199,13 +213,13 @@ code {
 .CountryListItem {
   width: 100%;
   padding: 4px;
-  background-color: rgb(250, 250, 250);
   margin: 2px 0 4px 0;
   border-radius: 5px;
-  border: 1px rgb(236, 236, 236) solid;
   background-position: left !important;
   background-repeat: no-repeat !important;
   background-size: contain !important;
+  border: 1px rgb(250, 250, 250) solid;
+  box-shadow: 0 1px 2px 0 rgba(146, 146, 146, 0.7);
 }
 
 .flagAndTitle {
@@ -229,6 +243,7 @@ code {
   margin-right: 10px;
   border-radius: 4px;
   vertical-align: middle;
+  box-shadow: 0 1px 2px 0 rgba(146, 146, 146, 0.7);
 }
 
 .CountryListItem i {
@@ -327,10 +342,37 @@ code {
   border-radius: 5px;
   border: 1px rgb(226, 226, 226) solid;
   margin-bottom: 10px;
+  z-index: 100 !important;
 }
 
 /* Line Chart */
 .Line {
   width: 100% !important;
   height: 100% !important;
+}
+
+/* ScrollBar*/
+::-webkit-scrollbar {
+  width: 4px !important;
+
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: rgb(255, 255, 255);
+  border-radius: 20px !important;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 190, 79);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 92, 38);
 }

@@ -99,10 +99,10 @@ const ContriesListItem = ({
           </div>
         </OverlayTrigger>
 
-        <p className='lastUpdateList'>
+        {/* <p className='lastUpdateList'>
           <i className='far fa-clock' />
           Last update:<span>{moment(updated).fromNow()}.</span>
-        </p>
+        </p> */}
       </div>
     </div>
   );
