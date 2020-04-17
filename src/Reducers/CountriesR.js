@@ -30,7 +30,11 @@ export default (state = initialState, action) => {
       return { ...state, currentCountry: action.payload, loading: false };
 
     case GET_HiSTORY_CURRENT:
-      return { ...state, currentCountryHistory: action.payload, loading: false };
+      return {
+        ...state,
+        currentCountryHistory: action.payload,
+        loading: false
+      };
 
     case SET_LOADING:
       return { ...state, loading: true };

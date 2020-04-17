@@ -11,6 +11,13 @@ export const getCountries = () => async dispatch => {
   try {
     setLoading();
     const res = await fetch('https://corona.lmao.ninja/v2/countries');
+    if (!res.ok) {
+      dispatch({
+        type: COUNTRIES_ERROR,
+        payload: `HTTP Status: ${res.status}`
+      });
+      throw new Error(`HTTP Status: ${res.status}`);
+    }
     const data = await res.json();
     const sortedCountriesByCases = [...data].sort((a, b) => {
       return b.cases - a.cases;
@@ -35,8 +42,16 @@ export const getHistoryCurrent = country => async dispatch => {
     const res = await fetch(
       `https://corona.lmao.ninja/v2/historical/${country}`
     );
+    if (!res.ok) {
+      dispatch({
+        type: COUNTRIES_ERROR,
+        payload: `HTTP Status: ${res.status}`
+      });
+      throw new Error(`HTTP Status: ${res.status}`);
+    }
     dispatch({ type: GET_HiSTORY_CURRENT, payload: await res.json() });
   } catch (err) {
+    console.log(err);
     dispatch({ type: COUNTRIES_ERROR, payload: err.message });
   }
 };
