@@ -15,7 +15,8 @@ import Col from 'react-bootstrap/Col';
 const Countries = ({
   AllCountriesData: { allCountriesData, allCountriesloading },
   getAllCountries,
-  setCurrentCountry
+  setCurrentCountry,
+  getCurrentHistory
 }) => {
   useEffect(() => {
     getAllCountries();

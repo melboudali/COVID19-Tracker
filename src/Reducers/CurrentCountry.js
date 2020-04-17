@@ -15,15 +15,19 @@ export default (state = initialState, action) => {
     case SET_CURRENT_COUNTRY:
       return {
         ...state,
-        currentCuntry: action.payload,
-        loading: false
+        currentCountry: action.payload,
+        currentCountryLoading: false
       };
 
     case SET_CURRENT_COUNTRY_LOADING:
       return { ...state, currentCountryLoading: true };
 
     case SET_CURRENT_COUNTRY_ERROR:
-      return { ...state, currentCountryError: action.payload, loading: false };
+      return {
+        ...state,
+        currentCountryError: action.payload,
+        currentCountryLoading: false
+      };
 
     default:
       return state;

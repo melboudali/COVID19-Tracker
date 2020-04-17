@@ -6,6 +6,10 @@ import {
 
 const initialState = {
   currentCountryHistory: null,
+  Dates: null,
+  Cases: null,
+  Deaths: null,
+  Recovered: null,
   currentCountryLoading: false,
   currentCountryError: null
 };
@@ -15,15 +19,23 @@ export default (state = initialState, action) => {
     case GET_HiSTORY_CURRENT_COUNTRY:
       return {
         ...state,
-        currentCountryHistory: action.payload,
-        loading: false
+        currentCountryHistory: action.payload.Data,
+        Dates: action.payload.Dates,
+        Cases: action.payload.Cases,
+        Deaths: action.payload.Deaths,
+        Recovered: action.payload.Recovered,
+        currentCountryLoading: false
       };
 
     case SET_HiSTORY_CURRENT_COUNTRY_LOADING:
       return { ...state, currentCountryLoading: true };
 
     case SET_HiSTORY_CURRENT_COUNTRY_ERROR:
-      return { ...state, currentCountryError: action.payload, loading: false };
+      return {
+        ...state,
+        currentCountryError: action.payload,
+        currentCountryLoading: false
+      };
 
     default:
       return state;
