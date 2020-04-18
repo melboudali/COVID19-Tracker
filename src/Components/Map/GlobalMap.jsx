@@ -65,14 +65,11 @@ const GlobalMap = ({
             <Marker
               key={id}
               latitude={country.countryInfo.lat}
-              longitude={country.countryInfo.long}>
+              longitude={country.countryInfo.long}
+              offsetTop={-15}
+              offsetLeft={-5}>
               <i
-                class='fas fa-circle'
-                style={{
-                  color: 'red',
-                  fontSize: `${country.cases / 5000}px`,
-                  opacity: '.6'
-                }}
+                className='fas fa-circle circle'
                 onMouseEnter={() =>
                   setPopupState({
                     state: true,
@@ -94,21 +91,27 @@ const GlobalMap = ({
             <Popup
               latitude={popupState.lat}
               longitude={popupState.long}
+              closeButton={false}
+              offsetTop={-5}
+              offsetLeft={5}
+              className='popupup'
               onClose={() => {
                 setPopupState({ ...popupState, state: false });
               }}>
               <div>
-                <h6>
+                <h6 className='popupHeader'>
                   <img
                     src={popupState.flag}
                     alt='flag'
                     style={{ width: '60px' }}
-                  />{' '}
+                  />
                   {popupState.name}
                 </h6>
-                <p>Cases: {popupState.cases}</p>
-                <p>Deaths: {popupState.deaths}</p>
-                <p>Recovered: {popupState.recovered}</p>
+                <p className='popupCases'>Cases: {popupState.cases}</p>
+                <p className='popupDeaths'>Deaths: {popupState.deaths}</p>
+                <p className='popupRecovered'>
+                  Recovered: {popupState.recovered}
+                </p>
               </div>
             </Popup>
           )}

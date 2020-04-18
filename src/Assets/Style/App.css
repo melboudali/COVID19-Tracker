@@ -325,6 +325,62 @@ code {
   box-shadow: 0 10px 6px -6px #777;
 }
 
+/* Popup */
+.circle {
+  color: #ff2845;
+  opacity: .7;
+}
+
+.mapboxgl-popup-content {
+  background-color: rgb(73, 73, 73) !important;
+  padding: 5px !important;
+  margin: 0 !important;
+  height: fit-content !important;
+}
+
+.mapboxgl-popup-tip {
+  display: none;
+}
+
+.popupHeader {
+  margin: 0 0 6px 0 !important;
+  padding: 0 !important;
+  color: rgb(194, 194, 194);
+  font-size: 1.2rem;
+  vertical-align: middle !important;
+}
+
+.popupHeader img {
+  margin: 0 3px 0 0 !important;
+  padding: 0 !important;
+  width: 45px !important;
+  height: 27px !important;
+}
+
+.popupCases {
+  margin: 0 0 6px 0 !important;
+  padding: 0 !important;
+  color: #ec9a00;
+  font-size: 0.9rem;
+  text-shadow: 0px 1px 0px rgb(0, 0, 0);
+}
+
+.popupDeaths {
+  margin: 0 0 6px 0 !important;
+  padding: 0 !important;
+  color: #ff2845;
+  font-size: 0.9rem;
+  text-shadow: 0px 1px 0px rgb(0, 0, 0);
+}
+
+.popupRecovered {
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #00dd81;
+  font-size: 0.9rem;
+  text-shadow: 0px 1px 0px rgb(0, 0, 0);
+}
+
 /* ScrollBar*/
 ::-webkit-scrollbar {
   width: 4px !important;
