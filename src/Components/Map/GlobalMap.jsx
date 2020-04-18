@@ -5,11 +5,9 @@ import Spinner from 'react-bootstrap/Spinner';
 import PropTypes from 'prop-types';
 
 let apiKey;
-if (process.env.NODE_ENV) {
-  apiKey = process.env.REACT_APP_API_KEY;
-} else {
-  apiKey = process.env.API_KEY;
-}
+process.env.NODE_ENV
+  ? (apiKey = process.env.REACT_APP_API_KEY)
+  : (apiKey = process.env.API_KEY);
 
 const GlobalMap = ({
   CurrentCountryData: { currentCountry, currentCountryLoading },
@@ -17,9 +15,12 @@ const GlobalMap = ({
 }) => {
   const [viewPort, setViewPort] = useState({
     width: '100%',
-    height: '100%',
-    transitionDuration: 3000,
-    transitionInterpolator: new FlyToInterpolator()
+    height: '100%'
+  });
+  const [popupState, setPopupState] = useState({
+    state: false,
+    lat: 16,
+    long: 27
   });
 
   useEffect(() => {
@@ -28,14 +29,19 @@ const GlobalMap = ({
           ...viewPort,
           latitude: currentCountry.lat,
           longitude: currentCountry.long,
-          zoom: 3.5
+          zoom: 3.5,
+          transitionDuration: 3000,
+          transitionInterpolator: new FlyToInterpolator()
         })
       : setViewPort({
           ...viewPort,
           latitude: 16,
           longitude: 27,
-          zoom: 1.3
+          zoom: 1.3,
+          transitionDuration: 3000,
+          transitionInterpolator: new FlyToInterpolator()
         });
+    // eslint-disable-next-line
   }, [currentCountry, currentCountryLoading]);
 
   return (
@@ -54,7 +60,59 @@ const GlobalMap = ({
           mapStyle='mapbox://styles/mapbox/dark-v10'
           onViewportChange={viewPort => {
             setViewPort(viewPort);
-          }}></ReactMapGL>
+          }}>
+          {allCountriesData.map((country, id) => (
+            <Marker
+              key={id}
+              latitude={country.countryInfo.lat}
+              longitude={country.countryInfo.long}>
+              <i
+                class='fas fa-circle'
+                style={{
+                  color: 'red',
+                  fontSize: `${country.cases / 5000}px`,
+                  opacity: '.6'
+                }}
+                onMouseEnter={() =>
+                  setPopupState({
+                    state: true,
+                    name: country.country,
+                    flag: country.countryInfo.flag,
+                    cases: country.cases,
+                    deaths: country.deaths,
+                    recovered: country.recovered,
+                    lat: country.countryInfo.lat,
+                    long: country.countryInfo.long
+                  })
+                }
+                onMouseLeave={() =>
+                  setPopupState({ ...popupState, state: false })
+                }></i>
+            </Marker>
+          ))}
+          {popupState.state && (
+            <Popup
+              latitude={popupState.lat}
+              longitude={popupState.long}
+              onClose={() => {
+                setPopupState({ ...popupState, state: false });
+              }}>
+              <div>
+                <h6>
+                  <img
+                    src={popupState.flag}
+                    alt='flag'
+                    style={{ width: '60px' }}
+                  />{' '}
+                  {popupState.name}
+                </h6>
+                <p>Cases: {popupState.cases}</p>
+                <p>Deaths: {popupState.deaths}</p>
+                <p>Recovered: {popupState.recovered}</p>
+              </div>
+            </Popup>
+          )}
+        </ReactMapGL>
       )}
     </>
   );

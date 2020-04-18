@@ -8,7 +8,7 @@ import GlobalMap from '../Map/GlobalMap';
 
 const MidSectionContainer = () => {
   return (
-    <Container className='MidSection'>
+    <Container className='MidSection' fluid>
       <Row>
         <Col xs='12' sm='12' md='12' lg='12' xl='12'>
           <div className='GlobalMap'>
