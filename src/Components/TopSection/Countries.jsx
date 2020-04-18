@@ -47,7 +47,7 @@ const Countries = ({
       const {
         updated,
         country,
-        countryInfo: { flag },
+        countryInfo: { flag, lat, long },
         cases,
         todayCases,
         deaths,
@@ -64,6 +64,8 @@ const Countries = ({
         updated,
         country,
         flag,
+        lat,
+        long,
         cases,
         todayCases,
         deaths,
