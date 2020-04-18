@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import ReactMapGL, { FlyToInterpolator, Marker, Popup } from 'react-map-gl';
 import Spinner from 'react-bootstrap/Spinner';
+import PropTypes from 'prop-types';
+
+let apiKey;
+if (process.env.NODE_ENV) {
+  apiKey = process.env.REACT_APP_API_KEY;
+} else {
+  apiKey = process.env.API_KEY;
+}
 
 const GlobalMap = ({
   CurrentCountryData: { currentCountry, currentCountryLoading },
   AllCountriesData: { allCountriesData, allCountriesloading }
 }) => {
-  const [getToken, setToken] = useState(
-    'pk.eyJ1Ijoia25pdHoiLCJhIjoiY2s5NWx5emQwMDA4aDNkb2l4MHVoMGpnZCJ9.3xTVEOUSMOapHza9bsH-Yg'
-  );
-
   const [viewPort, setViewPort] = useState({
     width: '100%',
     height: '100%',
@@ -46,7 +50,7 @@ const GlobalMap = ({
         <ReactMapGL
           className='map'
           {...viewPort}
-          mapboxApiAccessToken={getToken}
+          mapboxApiAccessToken={apiKey}
           mapStyle='mapbox://styles/mapbox/dark-v10'
           onViewportChange={viewPort => {
             setViewPort(viewPort);
@@ -54,6 +58,13 @@ const GlobalMap = ({
       )}
     </>
   );
+};
+
+GlobalMap.prototype = {
+  currentCountry: PropTypes.object,
+  currentCountryLoading: PropTypes.bool,
+  allCountriesData: PropTypes.object,
+  allCountriesloading: PropTypes.bool
 };
 
 const mapStateToProps = state => ({
