@@ -328,7 +328,6 @@ code {
 /* Popup */
 .circle {
   color: #ff2845;
-  opacity: .7;
 }
 
 .mapboxgl-popup-content {
