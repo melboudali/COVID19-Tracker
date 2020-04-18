@@ -1,79 +1,64 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import ReactMapboxGl, { Layer, Feature, Popup } from 'react-mapbox-gl';
+import ReactMapGL, { FlyToInterpolator, Marker, Popup } from 'react-map-gl';
+import Spinner from 'react-bootstrap/Spinner';
 
-const GlobalMap = ({ CurrentCountryData, currentCountryLoading }) => {
-  const Map = ReactMapboxGl({
-    accessToken:
-      'pk.eyJ1Ijoia25pdHoiLCJhIjoiY2s5NHNmY2ZoMGM5YTNmbnlveTdnb2xxZCJ9.XjlDa7u3f2R1VpoiAytmoA'
+const GlobalMap = ({
+  CurrentCountryData: { currentCountry, currentCountryLoading },
+  AllCountriesData: { allCountriesData, allCountriesloading }
+}) => {
+  const [getToken, setToken] = useState(
+    'pk.eyJ1Ijoia25pdHoiLCJhIjoiY2s5NWx5emQwMDA4aDNkb2l4MHVoMGpnZCJ9.3xTVEOUSMOapHza9bsH-Yg'
+  );
+
+  const [viewPort, setViewPort] = useState({
+    width: '100%',
+    height: '100%',
+    transitionDuration: 3000,
+    transitionInterpolator: new FlyToInterpolator()
   });
 
-  const [currentCountry, setCureentCountry] = useState([]);
   useEffect(() => {
-    if (CurrentCountryData !== null || !currentCountryLoading) {
-      const { lat, long } = CurrentCountryData;
-      setCureentCountry([
-        [32.958984, -5.353521],
-        [43.50585, 5.615985]
-      ]);
-    }
-  }, [CurrentCountryData]);
+    currentCountry !== null && !currentCountryLoading
+      ? setViewPort({
+          ...viewPort,
+          latitude: currentCountry.lat,
+          longitude: currentCountry.long,
+          zoom: 3.5
+        })
+      : setViewPort({
+          ...viewPort,
+          latitude: 16,
+          longitude: 27,
+          zoom: 1.3
+        });
+  }, [currentCountry, currentCountryLoading]);
 
   return (
     <>
-      <Map
-        className='map'
-        style='mapbox://styles/mapbox/dark-v10'
-        center={[16, 27]}
-        zoom={[1.5]}
-        // fitBounds={
-        //   currentCountry.length > 0 && !currentCountryLoading
-        //     ? currentCountry
-        //     : [
-        //         [32.958984, -5.353521],
-        //         [43.50585, 5.615985]
-        //       ]
-        // }
-        containerStyle={{
-          height: '100%',
-          width: '100%'
-        }}>
-        <Layer
-          type='circle'
-          id='marker'
-          paint={{
-            'circle-opacity': 0.75,
-            'circle-radius': [
-              'interpolate',
-              ['linear'],
-              ['get', [2,33,5645]]
-            ],
-            'circle-color': '#EA240F'
-          }}>
-          <Feature
-            onMouseEnter={() => {}}
-            coordinates={[-7.603869, 33.589886]}
-          />
-          {/* <Feature coordinates={[-97, 38]} />
-          <Feature coordinates={[-4, 40]} /> */}
-        </Layer>
-        {/* <Popup
-          coordinates={[-7.603869, 33.589886]}
-          offset={{
-            'top-left': [12, -38],
-            top: [0, -38],
-            'top-right': [-12, -38]
-          }}>
-          <h1>Popup</h1>
-        </Popup> */}
-        ;
-      </Map>
+      {allCountriesData === null || allCountriesloading ? (
+        <div className='Spinner'>
+          <Spinner animation='border' role='status' variant='success'>
+            <span className='sr-only'>Loading...</span>
+          </Spinner>
+        </div>
+      ) : (
+        <ReactMapGL
+          className='map'
+          {...viewPort}
+          mapboxApiAccessToken={getToken}
+          mapStyle='mapbox://styles/mapbox/dark-v10'
+          onViewportChange={viewPort => {
+            setViewPort(viewPort);
+          }}></ReactMapGL>
+      )}
     </>
   );
 };
 
 const mapStateToProps = state => ({
-  CurrentCountryData: state.CurrentCountryData
+  CurrentCountryData: state.CurrentCountryData,
+  AllCountriesData: state.AllCountries
 });
 
 export default connect(mapStateToProps)(GlobalMap);

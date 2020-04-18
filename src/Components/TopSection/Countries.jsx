@@ -23,7 +23,7 @@ const Countries = ({
   }, [getAllCountries]);
 
   const [, setInputValue] = useState('');
-  const [getSelectedCountry, SetSelectedCountry] = useState('');
+  const [updateTime, setUpdateTime] = useState(0);
 
   const filterCountrie = inputValue => {
     if (!allCountriesloading && allCountriesData !== null)
@@ -57,8 +57,6 @@ const Countries = ({
         critical,
         tests
       } = e;
-      // TODO: Change this state Later
-      SetSelectedCountry({ country, updated });
       //   Set Current country
       setCurrentCountry({
         updated,
@@ -77,6 +75,8 @@ const Countries = ({
       });
 
       getCurrentHistory(country);
+    } else {
+      setCurrentCountry(null);
     }
   };
 
@@ -88,9 +88,11 @@ const Countries = ({
             <div className='countriesDopdown'>
               {/* <p>Selected Country: {`${SelectedCountry}`}</p> */}
               {allCountriesloading || allCountriesData === null ? (
-                <Spinner animation='border' role='status' variant='success'>
-                  <span className='sr-only'>Loading...</span>
-                </Spinner>
+                <div className='Spinner'>
+                  <Spinner animation='border' role='status' variant='success'>
+                    <span className='sr-only'>Loading...</span>
+                  </Spinner>
+                </div>
               ) : (
                 <div>
                   <AsyncSelect
@@ -124,9 +126,8 @@ const Countries = ({
                     <i className='far fa-clock' />
                     Last update:
                     <span>
-                      {getSelectedCountry !== '' &&
-                        moment(getSelectedCountry.updated).fromNow()}
-                      .
+                      {allCountriesData[0].updated > 0 &&
+                        moment(allCountriesData[0].updated).fromNow()}
                     </span>
                   </p>
                 </div>
