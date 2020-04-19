@@ -119,7 +119,7 @@ code {
 /* Selected */
 .css-4ljt47-MenuList {
   font-family: 'Varela Round';
-  text-align: left;
+  text-align: left !important;
 }
 
 .css-yt9ioa-option {
