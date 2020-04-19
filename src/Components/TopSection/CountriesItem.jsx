@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const CountriesItem = ({ data, ...props }) => {
   return (
-    <div>
+    <div style={{ textAlign: 'left !important' }}>
       <components.Option {...props}>
         <img src={data.countryInfo.flag} className='flag' alt={data.country} />
         {data.country}
