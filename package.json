@@ -1,5 +1,6 @@
 {
   "name": "my-react-boilerplate",
+  "homepage": "https://medelboudali.github.io/Coronavirus-Update",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -44,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
