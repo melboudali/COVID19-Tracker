@@ -92,7 +92,7 @@ const GlobalMap = ({
               latitude={popupState.lat}
               longitude={popupState.long}
               closeButton={false}
-              offsetTop={-15}
+              offsetTop={-10}
               offsetLeft={-5}
               className='popupup'
               onClose={() => {
