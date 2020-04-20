@@ -176,9 +176,17 @@ code {
 }
 
 /* WWStates */
-.WWStates{
+.WWStates {
   height: 200px;
   border: 1px #4e4e4e solid;
+  text-align: center;
+}
+
+.WWStatesHeader {
+  font-family: 'Varela Round';
+  color: #4e4e4e;
+  font-weight: bold;
+  font-size: 1.6rem;
 }
 
 /* Map */
