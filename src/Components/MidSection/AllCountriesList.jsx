@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import ContriesListItem from './ContriesListItem';
 import Spinner from 'react-bootstrap/Spinner';
@@ -12,7 +12,7 @@ const AllCountriesList = ({
   }
 }) => {
   return (
-    <div>
+    <Fragment>
       {allCountriesData === null || allCountriesloading ? (
         <div className='Spinner'>
           <Spinner animation='border' role='status' variant='success'>
@@ -20,11 +20,13 @@ const AllCountriesList = ({
           </Spinner>
         </div>
       ) : (
-        allCountriesSortedByCases.map((country, id) => (
-          <ContriesListItem country={country} key={id} id={id} />
-        ))
+        <div className='AllCountriesList'>
+          {allCountriesSortedByCases.map((country, id) => (
+            <ContriesListItem country={country} key={id} id={id} />
+          ))}
+        </div>
       )}
-    </div>
+    </Fragment>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import ReactMapGL, { FlyToInterpolator, Marker, Popup } from 'react-map-gl';
 import Spinner from 'react-bootstrap/Spinner';
@@ -45,7 +45,7 @@ const GlobalMap = ({
   }, [currentCountry, currentCountryLoading]);
 
   return (
-    <>
+    <Fragment>
       {allCountriesData === null || allCountriesloading ? (
         <div className='Spinner'>
           <Spinner animation='border' role='status' variant='success'>
@@ -53,71 +53,77 @@ const GlobalMap = ({
           </Spinner>
         </div>
       ) : (
-        <ReactMapGL
-          className='map'
-          {...viewPort}
-          mapboxApiAccessToken={apiKey}
-          mapStyle='mapbox://styles/mapbox/dark-v10'
-          onViewportChange={viewPort => {
-            setViewPort(viewPort);
-          }}>
-          {allCountriesData.map((country, id) => (
-            <Marker
-              key={id}
-              latitude={country.countryInfo.lat}
-              longitude={country.countryInfo.long}
-              offsetTop={-15}
-              offsetLeft={-5}>
-              <i
-                className='fas fa-circle circle'
-                onMouseEnter={() =>
-                  setPopupState({
-                    state: true,
-                    name: country.country,
-                    flag: country.countryInfo.flag,
-                    cases: country.cases,
-                    deaths: country.deaths,
-                    recovered: country.recovered,
-                    lat: country.countryInfo.lat,
-                    long: country.countryInfo.long
-                  })
-                }
-                onMouseLeave={() =>
-                  setPopupState({ ...popupState, state: false })
-                }></i>
-            </Marker>
-          ))}
-          {popupState.state && (
-            <Popup
-              latitude={popupState.lat}
-              longitude={popupState.long}
-              closeButton={false}
-              offsetTop={-10}
-              offsetLeft={-5}
-              className='popupup'
-              onClose={() => {
-                setPopupState({ ...popupState, state: false });
-              }}>
-              <div>
-                <h6 className='popupHeader'>
-                  <img
-                    src={popupState.flag}
-                    alt='flag'
-                    style={{ width: '60px' }}
-                  />
-                  {popupState.name}
-                </h6>
-                <p className='popupCases'>Cases: {popupState.cases}</p>
-                <p className='popupDeaths'>Deaths: {popupState.deaths}</p>
-                <p className='popupRecovered'>
-                  Recovered: {popupState.recovered}
-                </p>
-              </div>
-            </Popup>
-          )}
-        </ReactMapGL>
+        <Fragment>
+          {' '}
+          <p className='mapHeader'>
+            <i className='fas fa-globe-africa'></i>Coronavirus World Map
+          </p>
+          <ReactMapGL
+            className='map'
+            {...viewPort}
+            mapboxApiAccessToken={apiKey}
+            mapStyle='mapbox://styles/mapbox/dark-v10'
+            onViewportChange={viewPort => {
+              setViewPort(viewPort);
+            }}>
+            {allCountriesData.map((country, id) => (
+              <Marker
+                key={id}
+                latitude={country.countryInfo.lat}
+                longitude={country.countryInfo.long}
+                offsetTop={-15}
+                offsetLeft={-5}>
+                <i
+                  className='fas fa-circle circle'
+                  onMouseEnter={() =>
+                    setPopupState({
+                      state: true,
+                      name: country.country,
+                      flag: country.countryInfo.flag,
+                      cases: country.cases,
+                      deaths: country.deaths,
+                      recovered: country.recovered,
+                      lat: country.countryInfo.lat,
+                      long: country.countryInfo.long
+                    })
+                  }
+                  onMouseLeave={() =>
+                    setPopupState({ ...popupState, state: false })
+                  }></i>
+              </Marker>
+            ))}
+            {popupState.state && (
+              <Popup
+                latitude={popupState.lat}
+                longitude={popupState.long}
+                closeButton={false}
+                offsetTop={-10}
+                offsetLeft={-5}
+                className='popupup'
+                onClose={() => {
+                  setPopupState({ ...popupState, state: false });
+                }}>
+                <div>
+                  <h6 className='popupHeader'>
+                    <img
+                      src={popupState.flag}
+                      alt='flag'
+                      style={{ width: '60px' }}
+                    />
+                    {popupState.name}
+                  </h6>
+                  <p className='popupCases'>Cases: {popupState.cases}</p>
+                  <p className='popupDeaths'>Deaths: {popupState.deaths}</p>
+                  <p className='popupRecovered'>
+                    Recovered: {popupState.recovered}
+                  </p>
+                </div>
+              </Popup>
+            )}
+          </ReactMapGL>
+        </Fragment>
       )}
-    </>
+    </Fragment>
   );
 };
 

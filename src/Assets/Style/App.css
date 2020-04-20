@@ -165,170 +165,47 @@ code {
 .MidSection {
   width: 100% !important;
   height: fit-content;
-  margin: 30px 0;
 }
 
-.currentCountryStates {
-  height: 500px !important;
-  width: 100% !important;
-  border-radius: 5px;
-  margin: 30px 0 0 0;
-  background-color: white;
-  border: 1px rgb(250, 250, 250) solid !important;
-  box-shadow: 0 1px 2px 0 rgb(131, 131, 131) !important;
+.rowPadding {
+  padding: 0 15px !important;
 }
 
-.AllCountriesList {
-  height: 500px !important;
-  border-radius: 5px;
-  height: 400px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  padding: 2px 4px;
-  background-color: white;
-  margin: 30px 0 0 0;
-  position: relative;
-  border: 1px rgb(255, 255, 255) solid !important;
-  box-shadow: 0 1px 2px 0 rgb(131, 131, 131) !important;
-}
-/* All Countries List */
-/* Spinner */
-.Spinner {
-  width: fit-content;
-  height: fit-content;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-/* List */
-.CountryListItem {
-  width: 100%;
-  padding: 4px;
-  margin: 2px 0 4px 0;
-  border-radius: 5px;
-  background-position: left !important;
-  background-repeat: no-repeat !important;
-  background-size: contain !important;
-  border: 1px rgb(250, 250, 250) solid !important;
-  box-shadow: 0 1px 2px 0 rgb(131, 131, 131) !important;
-  cursor: all-scroll !important;
-}
-
-.flagAndTitle {
-  position: relative;
-  display: inline-block;
-  height: 30px;
-}
-
-.CountryName {
-  font-size: 1.3rem;
-  font-weight: 700;
-  display: inline-block;
-  vertical-align: middle !important;
-  margin: 0;
-  color: #4e4e4e;
-}
-
-.CountryListItem img {
-  height: 100%;
-  width: 48px;
-  margin-right: 10px;
-  border-radius: 4px;
-  vertical-align: middle;
-  box-shadow: 0 1px 2px 0 rgb(131, 131, 131) !important;
-}
-
-.CountryListItem i {
-  margin-right: 5px;
-}
-
-/* Cases/ Deaths/ Recovered/ Tests */
-.CDR {
-  display: block;
-  box-sizing: border-box;
-  margin: 5px auto;
-  text-align: center;
-  display: block;
-  font-weight: 600;
-  font-size: 0.9em;
-}
-
-.Cases {
-  color: rgb(78, 78, 78);
-  display: inline-block;
-  text-align: center;
-}
-
-.Cases i {
-  display: block;
-  font-size: 1.2rem;
-  margin: 5px 0;
-}
-
-.Deaths {
-  color: rgb(240, 62, 92);
-  display: inline-block;
-  text-align: center;
-  margin: 0 15px 0 20px !important;
-}
-
-.Deaths i {
-  display: block;
-  font-size: 1.2rem;
-  margin: 5px 0;
-}
-
-.Recovered {
-  color: rgb(0, 190, 79);
-  display: inline-block;
-  text-align: center;
-  margin: 0 20px 0 15px !important;
-}
-
-.Recovered i {
-  display: block;
-  font-size: 1.2rem;
-  margin: 5px 0;
-}
-
-.Tests {
-  color: rgb(73, 76, 255);
-  display: inline-block;
-  text-align: center;
-}
-
-.Tests i {
-  display: block;
-  font-size: 1.2rem;
-  margin: 5px 0;
-}
-
-.todayResults {
-  color: rgba(255, 0, 64, 0.788);
-  margin-left: 3px;
-  font-size: 0.6rem;
-  vertical-align: middle;
+.noPadding {
+  padding: 0 2px !important;
 }
 
 /* Map */
 .GlobalMap {
   width: 100%;
-  height: 400px;
+  height: 450px;
   position: relative;
+  margin: 10px 0;
+}
+
+.mapHeader {
+  color: #3b3b3b;
+  font-family: 'Varela Round';
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 0 0 3px 0 !important;
+  padding: 0 !important;
+}
+.mapHeader i {
+  margin-right: 5px;
 }
 
 .map {
   border-radius: 5px !important;
   position: relative;
-  -webkit-box-shadow: 0 10px 6px -6px #777;
-  -moz-box-shadow: 0 10px 6px -6px #777;
-  box-shadow: 0 10px 6px -6px #777;
+  -webkit-box-shadow: 0 10px 6px -6px rgb(170, 170, 170);
+  -moz-box-shadow: 0 10px 6px -6px rgb(170, 170, 170);
+  box-shadow: 0 10px 6px -6px rgb(170, 170, 170);
 }
 
 /* Popup */
 .circle {
-  color: #ff2845;
+  color: #ff3939;
 }
 
 .mapboxgl-popup-content {
@@ -379,6 +256,150 @@ code {
   color: #00dd81;
   font-size: 0.9rem;
   text-shadow: 0px 1px 0px rgb(0, 0, 0);
+}
+
+.AllCountriesList {
+  height: 450px;
+  border-radius: 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 2px 4px;
+  margin: 10px 0;
+  position: relative;
+  background-color: white;
+  border: 2px rgb(240, 240, 240) solid !important;
+  -webkit-box-shadow: 0 10px 6px -6px rgb(170, 170, 170);
+  -moz-box-shadow: 0 10px 6px -6px rgb(170, 170, 170);
+  box-shadow: 0 10px 6px -6px rgb(170, 170, 170);
+  cursor: pointer !important;
+}
+
+/* All Countries List */
+/* Spinner */
+.Spinner {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* List */
+.CountryListItem {
+  width: 100%;
+  padding: 4px;
+  margin: 2px 0 4px 0;
+  border-radius: 5px;
+  background-color: #fdfdfd;
+  border: 1px rgb(250, 250, 250) solid !important;
+  box-shadow: 0 1px 2px 0 rgb(131, 131, 131) !important;
+}
+
+.flagAndTitle {
+  position: relative;
+  display: inline-block;
+  height: 30px;
+}
+
+.CountryName {
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: inline-block;
+  vertical-align: middle !important;
+  margin: 0;
+  color: #4e4e4e;
+}
+
+.CountryListItem img {
+  height: 70%;
+  width: 35px;
+  margin-right: 10px;
+  border-radius: 4px;
+  vertical-align: middle;
+  box-shadow: 0 1px 2px 0 rgb(131, 131, 131) !important;
+}
+
+.CountryListItem i {
+  margin-right: 5px;
+}
+
+/* Cases/ Deaths/ Recovered/ Tests */
+.CDR {
+  display: block;
+  box-sizing: border-box;
+  margin: 4px 0 0 0;
+  text-align: center;
+  display: block;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.Cases {
+  color: rgb(60, 60, 60);
+  display: inline-block;
+  text-align: center;
+}
+
+.Cases i {
+  display: block;
+  font-size: 1.1rem;
+  margin: 2px 0;
+}
+
+.Deaths {
+  color: rgb(241, 81, 81);
+  display: inline-block;
+  text-align: center;
+  margin: 0 10px 0 15px !important;
+}
+
+.Deaths i {
+  display: block;
+  font-size: 1.1rem;
+  margin: 2px 0;
+}
+
+.Recovered {
+  color: rgb(25, 173, 87);
+  display: inline-block;
+  text-align: center;
+  margin: 0 15px 0 10px !important;
+}
+
+.Recovered i {
+  display: block;
+  font-size: 1.1rem;
+  margin: 2px 0;
+}
+
+.Tests {
+  color: rgb(119, 45, 204);
+  display: inline-block;
+  text-align: center;
+}
+
+.Tests i {
+  display: block;
+  font-size: 1.1rem;
+  margin: 2px 0;
+}
+
+.todayResults {
+  color: rgba(255, 0, 64, 0.788);
+  margin-left: 3px;
+  font-size: 0.6rem;
+  vertical-align: middle;
+}
+
+/* States */
+.currentCountryStates {
+  height: 500px !important;
+  width: 100% !important;
+  border-radius: 5px;
+  margin: 30px 0 0 0;
+  background-color: white;
+  border: 1px rgb(250, 250, 250) solid !important;
+  box-shadow: 0 1px 2px 0 rgb(131, 131, 131) !important;
 }
 
 /* ScrollBar*/
