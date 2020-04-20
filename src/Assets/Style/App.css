@@ -175,6 +175,12 @@ code {
   padding: 0 2px !important;
 }
 
+/* WWStates */
+.WWStates{
+  height: 200px;
+  border: 1px #4e4e4e solid;
+}
+
 /* Map */
 .GlobalMap {
   width: 100%;
