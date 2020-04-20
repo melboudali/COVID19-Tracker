@@ -20,10 +20,15 @@ const AllCountriesList = ({
           </Spinner>
         </div>
       ) : (
-        <div className='AllCountriesList'>
-          {allCountriesSortedByCases.map((country, id) => (
-            <ContriesListItem country={country} key={id} id={id} />
-          ))}
+        <div className="AllCountriesListCounteiner">
+          <p className='countriesListHeader'>
+            <i class='far fa-flag'></i>All Countries Stats
+          </p>
+          <div className='AllCountriesList'>
+            {allCountriesSortedByCases.map((country, id) => (
+              <ContriesListItem country={country} key={id} id={id} />
+            ))}
+          </div>
         </div>
       )}
     </Fragment>

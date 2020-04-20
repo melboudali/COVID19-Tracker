@@ -183,15 +183,18 @@ code {
   margin: 10px 0;
 }
 
-.mapHeader {
+.mapHeader,
+.countriesListHeader {
   color: #3b3b3b;
   font-family: 'Varela Round';
   font-weight: bold;
   font-size: 1.1rem;
-  margin: 0 0 3px 0 !important;
+  margin: 0 0 3px 10px !important;
   padding: 0 !important;
 }
-.mapHeader i {
+
+.mapHeader i,
+.countriesListHeader i {
   margin-right: 5px;
 }
 
@@ -209,7 +212,7 @@ code {
 }
 
 .mapboxgl-popup-content {
-  background-color: rgb(73, 73, 73) !important;
+  background-color: rgb(0, 0, 0) !important;
   padding: 5px !important;
   margin: 0 !important;
   height: fit-content !important;
@@ -232,6 +235,8 @@ code {
   padding: 0 !important;
   width: 45px !important;
   height: 27px !important;
+  border-radius: 2px;
+  border: 1px rgba(238, 238, 238, 0.315) solid;
 }
 
 .popupCases {
@@ -258,13 +263,16 @@ code {
   text-shadow: 0px 1px 0px rgb(0, 0, 0);
 }
 
+.AllCountriesListCounteiner {
+  margin: 10px 0;
+}
+
 .AllCountriesList {
   height: 450px;
   border-radius: 5px;
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 2px 4px;
-  margin: 10px 0;
   position: relative;
   background-color: white;
   border: 2px rgb(240, 240, 240) solid !important;
