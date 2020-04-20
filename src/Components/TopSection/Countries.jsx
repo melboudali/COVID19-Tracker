@@ -128,6 +128,7 @@ const Countries = ({
                     <span>
                       {allCountriesData[0].updated > 0 &&
                         moment(allCountriesData[0].updated).fromNow()}
+                      .
                     </span>
                   </p>
                 </div>
