@@ -112,10 +112,23 @@ const GlobalMap = ({
                     />
                     {popupState.name}
                   </h6>
-                  <p className='popupCases'>Cases: {popupState.cases}</p>
-                  <p className='popupDeaths'>Deaths: {popupState.deaths}</p>
+                  <p className='popupCases'>
+                    Cases:{' '}
+                    {popupState.cases
+                      .toString()
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                  </p>
+                  <p className='popupDeaths'>
+                    Deaths:{' '}
+                    {popupState.deaths
+                      .toString()
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                  </p>
                   <p className='popupRecovered'>
-                    Recovered: {popupState.recovered}
+                    Recovered:{' '}
+                    {popupState.recovered
+                      .toString()
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
                   </p>
                 </div>
               </Popup>
