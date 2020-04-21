@@ -5,14 +5,14 @@ import Col from 'react-bootstrap/Col';
 import AllCountriesList from './AllCountriesList';
 import CurrentCountryStats from './CurrentCountryStats';
 import GlobalMap from '../Map/GlobalMap';
-import WWStates from '../MidSection/WWStates';
+import WWStats from './WWStats';
 
 const MidSectionContainer = () => {
   return (
     <Container className='MidSection' fluid>
       <Row>
         <Col xs='12' sm='12' md='12' lg='12' xl='12'>
-          <WWStates />
+          <WWStats />
         </Col>
       </Row>
       <Row className='rowPadding'>
@@ -35,7 +35,7 @@ const MidSectionContainer = () => {
       </Row>
       <Row>
         <Col xs='12' sm='12' md='6' lg='7' xl='7'>
-          <div className='currentCountryStates'>
+          <div className='currentCountryStats'>
             <CurrentCountryStats />
           </div>
         </Col>

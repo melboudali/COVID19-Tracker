@@ -175,14 +175,14 @@ code {
   padding: 5px 2px !important;
 }
 
-/* WWStates */
-.WWStates {
+/* WWStats */
+.WWStats {
   height: 200px;
   border: 1px #4e4e4e solid;
   text-align: center;
 }
 
-.WWStatesHeader {
+.WWStatsHeader {
   font-family: 'Varela Round';
   color: #4e4e4e;
   font-weight: bold;
@@ -414,8 +414,8 @@ code {
   vertical-align: middle;
 }
 
-/* States */
-.currentCountryStates {
+/* Stats */
+.currentCountryStats {
   height: 500px !important;
   width: 100% !important;
   border-radius: 5px;

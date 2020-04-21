@@ -1,13 +1,13 @@
 import {
   GET_ALL_COUNTRIES,
-  GET_WWSTATES,
+  GET_WWStats,
   SET_ALL_COUNTRIES_LOADING,
   ERROR
 } from '../Actions/Types';
 
 const initialState = {
   allCountriesData: null,
-  WWStates: null,
+  WWStats: null,
   allCountriesSortedByCases: null,
   allCountriesloading: false,
   allCountriesError: null
@@ -23,8 +23,8 @@ export default (state = initialState, action) => {
         allCountriesloading: false
       };
 
-    case GET_WWSTATES:
-      return { ...state, WWStates: action.payload, allCountriesloading: false };
+    case GET_WWStats:
+      return { ...state, WWStats: action.payload, allCountriesloading: false };
 
     case SET_ALL_COUNTRIES_LOADING:
       return { ...state, allCountriesloading: true };

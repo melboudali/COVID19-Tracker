@@ -1,6 +1,6 @@
 import {
   GET_ALL_COUNTRIES,
-  GET_WWSTATES,
+  GET_WWStats,
   SET_ALL_COUNTRIES_LOADING,
   ERROR
 } from './Types';
@@ -30,11 +30,11 @@ export const getAllCountries = () => async dispatch => {
   }
 };
 
-export const WWStatesFetch = () => async dispatch => {
+export const WWStatsFetch = () => async dispatch => {
   try {
     setLoading();
     const res = await fetch('https://corona.lmao.ninja/v2/all');
-    dispatch({ type: GET_WWSTATES, payload: await res.json() });
+    dispatch({ type: GET_WWStats, payload: await res.json() });
   } catch (err) {
     dispatch({ type: ERROR, payload: err.message });
   }

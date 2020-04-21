@@ -4,10 +4,22 @@ import Spinner from 'react-bootstrap/Spinner';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
-const WWStates = ({ AllCountriesData: { WWStates, allCountriesloading } }) => {
+const WWStats = ({ AllCountriesData: { WWStats, allCountriesloading } }) => {
+  let {
+    updated,
+    cases,
+    todayCases,
+    deaths,
+    todayDeaths,
+    recovered,
+    active,
+    critical,
+    tests
+  } = WWStats || {};
+
   return (
-    <div className='WWStates'>
-      {WWStates === null || allCountriesloading ? (
+    <div className='WWStats'>
+      {WWStats === null || allCountriesloading ? (
         <div className='Spinner'>
           <Spinner animation='border' role='status' variant='success'>
             <span className='sr-only'>Loading...</span>
@@ -15,8 +27,8 @@ const WWStates = ({ AllCountriesData: { WWStates, allCountriesloading } }) => {
         </div>
       ) : (
         <>
-          <h1 className='WWStatesHeader'>
-            <i class='fas fa-globe'></i> Coronavirus World States
+          <h1 className='WWStatsHeader'>
+            <i class='fas fa-globe'></i> Coronavirus World Stats
           </h1>
           <div className='WCDR'>
             <OverlayTrigger
@@ -29,13 +41,11 @@ const WWStates = ({ AllCountriesData: { WWStates, allCountriesloading } }) => {
               }>
               <div className='Cases'>
                 <i className='fas fa-users'></i>
-                {WWStates.cases
-                  .toString()
-                  .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
-                {WWStates.todayCases > 0 && (
+                {cases.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                {todayCases > 0 && (
                   <span className='todayResults'>
                     +
-                    {WWStates.todayCases
+                    {todayCases
                       .toString()
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
                   </span>
@@ -53,10 +63,13 @@ const WWStates = ({ AllCountriesData: { WWStates, allCountriesloading } }) => {
               }>
               <div className='Deaths'>
                 <i className='fas fa-skull'></i>
-                {'222222222'.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
-                {'222222222' > 0 && (
+                {deaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                {todayDeaths > 0 && (
                   <span className='todayResults'>
-                    +{'222222222'.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                    +
+                    {todayDeaths
+                      .toString()
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
                   </span>
                 )}
               </div>
@@ -72,7 +85,7 @@ const WWStates = ({ AllCountriesData: { WWStates, allCountriesloading } }) => {
               }>
               <div className='Recovered'>
                 <i className='fas fa-hospital-user'></i>
-                {'222222222'.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                {recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
               </div>
             </OverlayTrigger>
 
@@ -86,7 +99,7 @@ const WWStates = ({ AllCountriesData: { WWStates, allCountriesloading } }) => {
               }>
               <div className='Tests'>
                 <i className='fas fa-vial'></i>
-                {'222222222'.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                {tests.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
               </div>
             </OverlayTrigger>
           </div>
@@ -100,4 +113,4 @@ const mapStateToProps = state => ({
   AllCountriesData: state.AllCountries
 });
 
-export default connect(mapStateToProps)(WWStates);
+export default connect(mapStateToProps)(WWStats);

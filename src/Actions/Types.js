@@ -1,6 +1,6 @@
 // Countries
 export const GET_ALL_COUNTRIES = 'GET_ALL_COUNTRIES';
-export const GET_WWSTATES = 'GET_WWSTATES';
+export const GET_WWStats = 'GET_WWStats';
 export const SET_ALL_COUNTRIES_LOADING = 'SET_ALL_COUNTRIES_LOADING';
 export const ERROR = 'ERROR';
 //Current
