@@ -12,7 +12,7 @@ const AllCountriesList = ({
   }
 }) => {
   return (
-    <Fragment>
+    <>
       {allCountriesData === null || allCountriesloading ? (
         <div className='Spinner'>
           <Spinner animation='border' role='status' variant='success'>
@@ -20,18 +20,13 @@ const AllCountriesList = ({
           </Spinner>
         </div>
       ) : (
-        <div className="AllCountriesListCounteiner">
-          <p className='countriesListHeader'>
-            <i class='far fa-flag'></i>All Countries Stats
-          </p>
-          <div className='AllCountriesList'>
-            {allCountriesSortedByCases.map((country, id) => (
-              <ContriesListItem country={country} key={id} id={id} />
-            ))}
-          </div>
+        <div className='AllCountriesList'>
+          {allCountriesSortedByCases.map((country, id) => (
+            <ContriesListItem country={country} key={id} id={id} />
+          ))}
         </div>
       )}
-    </Fragment>
+    </>
   );
 };
 

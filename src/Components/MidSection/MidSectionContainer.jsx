@@ -12,17 +12,25 @@ const MidSectionContainer = () => {
     <Container className='MidSection' fluid>
       <Row>
         <Col xs='12' sm='12' md='12' lg='12' xl='12'>
-            <WWStates />
+          <WWStates />
         </Col>
       </Row>
       <Row className='rowPadding'>
         <Col xs='12' sm='12' md='8' lg='8' xl='8' className='noPadding'>
+          <p className='mapHeader'>
+            <i className='fas fa-globe-africa'></i>Coronavirus World Map
+          </p>
           <div className='GlobalMap'>
             <GlobalMap />
           </div>
         </Col>
         <Col xs='12' sm='12' md='4' lg='4' xl='4' className='noPadding'>
-          <AllCountriesList />
+          <p className='countriesListHeader'>
+            <i class='far fa-flag'></i>All Countries Stats
+          </p>
+          <div className='countriesListContainer'>
+            <AllCountriesList />
+          </div>
         </Col>
       </Row>
       <Row>

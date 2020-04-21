@@ -53,11 +53,6 @@ const GlobalMap = ({
           </Spinner>
         </div>
       ) : (
-        <Fragment>
-          {' '}
-          <p className='mapHeader'>
-            <i className='fas fa-globe-africa'></i>Coronavirus World Map
-          </p>
           <ReactMapGL
             className='map'
             {...viewPort}
@@ -134,7 +129,6 @@ const GlobalMap = ({
               </Popup>
             )}
           </ReactMapGL>
-        </Fragment>
       )}
     </Fragment>
   );

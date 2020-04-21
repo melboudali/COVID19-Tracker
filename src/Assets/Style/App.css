@@ -172,7 +172,7 @@ code {
 }
 
 .noPadding {
-  padding: 0 2px !important;
+  padding: 5px 2px !important;
 }
 
 /* WWStates */
@@ -194,7 +194,7 @@ code {
   width: 100%;
   height: 450px;
   position: relative;
-  margin: 10px 0;
+  margin: 0;
 }
 
 .mapHeader,
@@ -277,16 +277,19 @@ code {
   text-shadow: 0px 1px 0px rgb(0, 0, 0);
 }
 
-.AllCountriesListCounteiner {
-  margin: 10px 0;
+/* All Countries List */
+/* Spinner */
+.countriesListContainer{
+  height: 450px !important;
 }
 
 .AllCountriesList {
-  height: 450px;
+  height: 100% !important;
   border-radius: 5px;
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 2px 4px;
+  margin: 0;
   position: relative;
   background-color: white;
   border: 2px rgb(240, 240, 240) solid !important;
@@ -296,8 +299,6 @@ code {
   cursor: pointer !important;
 }
 
-/* All Countries List */
-/* Spinner */
 .Spinner {
   width: fit-content;
   height: fit-content;
