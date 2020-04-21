@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { getAllCountries, WWStatsFetch } from '../../Actions/Countries';
 import { setCurrentCountry } from '../../Actions/CurrentCountry';
 import { getCurrentHistory } from '../../Actions/DataHistory';
-import moment from 'moment';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import AsyncSelect from 'react-select/async';
@@ -97,7 +96,7 @@ const Countries = ({
               ) : (
                 <div>
                   <AsyncSelect
-                    placeholder='Search or Select Countrie ...'
+                    placeholder='Search or Select Country ...'
                     options={allCountriesData}
                     getOptionLabel={option => {
                       return (
@@ -123,15 +122,6 @@ const Countries = ({
                     isClearable={true}
                     // menuIsOpen={true}
                   />
-                  <p className='lastUpdate'>
-                    <i className='far fa-clock' />
-                    Last update:
-                    <span>
-                      {allCountriesData[0].updated > 0 &&
-                        moment(allCountriesData[0].updated).fromNow()}
-                      .
-                    </span>
-                  </p>
                 </div>
               )}
             </div>

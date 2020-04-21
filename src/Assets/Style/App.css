@@ -86,7 +86,7 @@ code {
 .countriesSection {
   position: relative;
   box-sizing: border-box;
-  margin: 30px 0 0 0 !important;
+  margin: 5px 0 0 0 !important;
   padding: 0 !important;
   width: 100%;
   height: 90px;
@@ -177,8 +177,12 @@ code {
 
 /* WWStats */
 .WWStats {
-  height: 200px;
-  border: 1px #4e4e4e solid;
+  height: fit-content;
+  width: fit-content;
+  margin: 5px auto;
+  /* border: 1px #d6d6d6 solid; */
+  border-radius: 5px;
+  padding: 5px;
   text-align: center;
 }
 
@@ -189,6 +193,84 @@ code {
   font-size: 1.6rem;
 }
 
+.WCDR {
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  display: block;
+  font-family: 'Varela Round' !important;
+  font-size: 1.1em;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.829);
+  margin: 20px 0 15px 0 !important;
+}
+
+.WWCases {
+  color: rgb(255, 255, 255);
+  display: inline-block;
+  text-align: left;
+  background-color: #4d4d4d;
+  border-radius: 5px;
+  padding: 10px 15px;
+  -webkit-box-shadow: 0px 0px 32px -10px rgb(0, 0, 0);
+  -moz-box-shadow: 0px 0px 32px -10px rgb(0, 0, 0);
+  box-shadow: 0px 0px 32px -10px rgb(0, 0, 0);
+}
+
+.WWIcons {
+  display: block;
+  font-size: 1.1rem;
+  margin: 5px 0;
+  display: block;
+}
+
+.WWDeaths {
+  text-align: left;
+  color: rgb(255, 255, 255);
+  display: inline-block;
+  margin: 0 40px !important;
+  background-color: #d32a41;
+  border-radius: 5px;
+  padding: 10px 15px;
+  -webkit-box-shadow: 0px 0px 32px -10px rgba(255,0,0,1);
+  -moz-box-shadow: 0px 0px 32px -10px rgba(255,0,0,1);
+  box-shadow: 0px 0px 32px -10px rgba(255,0,0,1);
+}
+
+.WWRecovered {
+  text-align: left;
+  color: #ffffff;
+  background-color: rgb(25, 173, 87);
+  display: inline-block;
+  margin: 0 40px 0 0 !important;
+  border-radius: 5px;
+  padding: 10px 15px;
+  -webkit-box-shadow: 0px 0px 32px -10px rgb(0, 255, 85);
+  -moz-box-shadow: 0px 0px 32px -10px rgb(0, 255, 85);
+  box-shadow: 0px 0px 32px -10px rgb(0, 255, 85);
+}
+
+.WWTests {
+  text-align: left;
+  color: #ffffff;
+  background-color: rgb(119, 45, 204);
+  display: inline-block;
+  border-radius: 5px;
+  padding: 10px 15px;
+  -webkit-box-shadow: 0px 0px 32px -10px rgb(119, 45, 204);
+  -moz-box-shadow: 0px 0px 32px -10px rgb(119, 45, 204);
+  box-shadow: 0px 0px 32px -10px rgb(119, 45, 204);
+}
+
+.WWtodayResults {
+  color: rgb(255, 255, 255);
+  margin-left: 3px;
+  padding: .5px 2px;
+  font-size: 0.6rem;
+  vertical-align: middle;
+  background-color: #c92137;
+  border-radius: 3px;
+  border: 1px #ff5050 solid;
+}
 /* Map */
 .GlobalMap {
   width: 100%;
@@ -279,7 +361,7 @@ code {
 
 /* All Countries List */
 /* Spinner */
-.countriesListContainer{
+.countriesListContainer {
   height: 450px !important;
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import Spinner from 'react-bootstrap/Spinner';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -39,11 +40,13 @@ const WWStats = ({ AllCountriesData: { WWStats, allCountriesloading } }) => {
                   Confirmed Cases
                 </Tooltip>
               }>
-              <div className='Cases'>
-                <i className='fas fa-users'></i>
+              <div className='WWCases'>
+                <p className='WWIcons'>
+                  <i className='fas fa-users'></i> Cases
+                </p>
                 {cases.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
                 {todayCases > 0 && (
-                  <span className='todayResults'>
+                  <span className='WWtodayResults'>
                     +
                     {todayCases
                       .toString()
@@ -61,11 +64,13 @@ const WWStats = ({ AllCountriesData: { WWStats, allCountriesloading } }) => {
                   Confirmed Deaths
                 </Tooltip>
               }>
-              <div className='Deaths'>
-                <i className='fas fa-skull'></i>
+              <div className='WWDeaths'>
+                <p className='WWIcons'>
+                  <i className='fas fa-skull'></i> Deaths
+                </p>
                 {deaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
                 {todayDeaths > 0 && (
-                  <span className='todayResults'>
+                  <span className='WWtodayResults'>
                     +
                     {todayDeaths
                       .toString()
@@ -83,8 +88,10 @@ const WWStats = ({ AllCountriesData: { WWStats, allCountriesloading } }) => {
                   Confirmed Recovered
                 </Tooltip>
               }>
-              <div className='Recovered'>
-                <i className='fas fa-hospital-user'></i>
+              <div className='WWRecovered'>
+                <p className='WWIcons'>
+                  <i className='fas fa-hospital-user'></i> Recovered
+                </p>
                 {recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
               </div>
             </OverlayTrigger>
@@ -97,12 +104,19 @@ const WWStats = ({ AllCountriesData: { WWStats, allCountriesloading } }) => {
                   Confirmed Tests
                 </Tooltip>
               }>
-              <div className='Tests'>
-                <i className='fas fa-vial'></i>
+              <div className='WWTests'>
+                <p className='WWIcons'>
+                  <i className='fas fa-vial'></i> Tests
+                </p>
                 {tests.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
               </div>
             </OverlayTrigger>
           </div>
+          <p className='lastUpdate'>
+            <i className='far fa-clock' />
+            Last update:
+            <span>{updated > 0 && moment(updated).fromNow()}.</span>
+          </p>
         </>
       )}
     </div>
