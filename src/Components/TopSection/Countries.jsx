@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getAllCountries } from '../../Actions/Countries';
+import { getAllCountries, WWStatesFetch } from '../../Actions/Countries';
 import { setCurrentCountry } from '../../Actions/CurrentCountry';
 import { getCurrentHistory } from '../../Actions/DataHistory';
 import moment from 'moment';
@@ -15,15 +15,16 @@ import Col from 'react-bootstrap/Col';
 const Countries = ({
   AllCountriesData: { allCountriesData, allCountriesloading },
   getAllCountries,
+  WWStatesFetch,
   setCurrentCountry,
   getCurrentHistory
 }) => {
   useEffect(() => {
     getAllCountries();
-  }, [getAllCountries]);
+    WWStatesFetch();
+  }, [getAllCountries, WWStatesFetch]);
 
   const [, setInputValue] = useState('');
-  const [updateTime, setUpdateTime] = useState(0);
 
   const filterCountrie = inputValue => {
     if (!allCountriesloading && allCountriesData !== null)
@@ -154,6 +155,7 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   getAllCountries,
+  WWStatesFetch,
   setCurrentCountry,
   getCurrentHistory
 })(Countries);
