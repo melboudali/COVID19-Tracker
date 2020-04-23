@@ -186,11 +186,17 @@ code {
   text-align: center;
 }
 
+.countryFlag{
+  width: 55px;
+  margin-right: 10px;
+  border-radius: 3px;
+}
+
 .WWStatsHeader {
   font-family: 'Varela Round';
   color: #4e4e4e;
   font-weight: bold;
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 
 .WCDR {
@@ -201,7 +207,7 @@ code {
   font-family: 'Varela Round' !important;
   font-size: 1.1em;
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.829);
-  margin: 20px 0 15px 0 !important;
+  margin: 40px 0 15px 0 !important;
 }
 
 .WWCases {
