@@ -1,6 +1,7 @@
 import {
   GET_HiSTORY_CURRENT_COUNTRY,
   GET_WW_DATA_HISTORY,
+  CLEAR_CURRENT_COUNTRY,
   SET_HiSTORY_CURRENT_COUNTRY_LOADING,
   SET_HiSTORY_CURRENT_COUNTRY_ERROR
 } from '../Actions/Types';
@@ -41,6 +42,15 @@ export default (state = initialState, action) => {
         WWDeaths: action.payload.Deaths,
         WWRecovered: action.payload.Recovered,
         currentCountryLoading: false
+      };
+    case CLEAR_CURRENT_COUNTRY:
+      return {
+        ...state,
+        currentCountryHistory: null,
+        Dates: null,
+        Cases: null,
+        Deaths: null,
+        Recovered: null
       };
     case SET_HiSTORY_CURRENT_COUNTRY_LOADING:
       return { ...state, currentCountryLoading: true };

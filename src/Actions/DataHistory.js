@@ -1,6 +1,7 @@
 import {
   GET_HiSTORY_CURRENT_COUNTRY,
   GET_WW_DATA_HISTORY,
+  CLEAR_CURRENT_COUNTRY,
   SET_HiSTORY_CURRENT_COUNTRY_LOADING,
   SET_HiSTORY_CURRENT_COUNTRY_ERROR
 } from './Types';
@@ -94,6 +95,10 @@ export const getWWHistory = () => async dispatch => {
   } catch (err) {
     dispatch({ type: SET_HiSTORY_CURRENT_COUNTRY_ERROR, payload: err.message });
   }
+};
+
+export const clearCurrentHistory = () => {
+  return { type: CLEAR_CURRENT_COUNTRY };
 };
 
 export const setLoading = () => {

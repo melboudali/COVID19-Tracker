@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getAllCountries, WWStatsFetch } from '../../Actions/Countries';
 import { setCurrentCountry } from '../../Actions/CurrentCountry';
-import { getCurrentHistory, getWWHistory } from '../../Actions/DataHistory';
+import {
+  getCurrentHistory,
+  getWWHistory,
+  clearCurrentHistory
+} from '../../Actions/DataHistory';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import AsyncSelect from 'react-select/async';
@@ -79,6 +83,7 @@ const Countries = ({
       getCurrentHistory(country);
     } else {
       setCurrentCountry(null);
+      clearCurrentHistory();
     }
   };
 
@@ -140,7 +145,8 @@ Countries.prototype = {
   setCurrentCountry: PropTypes.func.isRequired,
   WWStatsFetch: PropTypes.func.isRequired,
   getCurrentHistory: PropTypes.func.isRequired,
-  getWWHistory: PropTypes.func.isRequired
+  getWWHistory: PropTypes.func.isRequired,
+  clearCurrentHistory: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -152,5 +158,6 @@ export default connect(mapStateToProps, {
   WWStatsFetch,
   setCurrentCountry,
   getCurrentHistory,
-  getWWHistory
+  getWWHistory,
+  clearCurrentHistory
 })(Countries);
