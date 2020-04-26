@@ -50,9 +50,21 @@ const CurrentCountryLineItem = ({
               ? `${currentCountry.country}'s Stats`
               : "World's Stats"
           },
+          legend: {
+            display: true,
+            position: 'bottom',
+            labels: {
+                usePointStyle: true,
+                fontColor: '#8a8a8a'
+            }
+        },
           tooltips: {
             enabled: true,
-            backgroundColor: '#f0f0f0',
+            backgroundColor: '#ededed',
+            borderWidth: '2',
+            borderColor: '#8a8a8a',
+            titleFontColor: '#4a4a4a',
+            bodyFontColor: '#4a4a4a',
             callbacks: {
               label: (tooltipItem, data) => {
                 let label = data.datasets[tooltipItem.datasetIndex].label || '';
@@ -69,7 +81,11 @@ const CurrentCountryLineItem = ({
               {
                 gridLines: {
                   display: false
-                }
+                },
+                ticks: {
+                    fontSize: 10,
+                    fontColor: '#2e2e2e'
+                  }
               }
             ],
             yAxes: [
@@ -78,11 +94,12 @@ const CurrentCountryLineItem = ({
                   display: true
                 },
                 ticks: {
-                  beginAtZero: true
+                  beginAtZero: true,
+                  fontSize: 10,
+                  fontColor: '#2e2e2e'
                 }
               }
-            ],
-            pointStyle: 'triangle'
+            ]
           }
         }}
       />

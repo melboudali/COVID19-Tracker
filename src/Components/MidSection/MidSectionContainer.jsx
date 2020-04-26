@@ -34,7 +34,17 @@ const MidSectionContainer = () => {
         </Col>
       </Row>
       <Row>
-        <Col xs='12' sm='12' md='6' lg='7' xl='7'>
+        <Col xs='12' sm='12' md='4' lg='4' xl='4'>
+          <div className='currentCountryStats'>
+            <CurrentCountryLine />
+          </div>
+        </Col>
+        <Col xs='12' sm='12' md='4' lg='4' xl='4'>
+          <div className='currentCountryStats'>
+            <CurrentCountryLine />
+          </div>
+        </Col>
+        <Col xs='12' sm='12' md='4' lg='4' xl='4'>
           <div className='currentCountryStats'>
             <CurrentCountryLine />
           </div>
