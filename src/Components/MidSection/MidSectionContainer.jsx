@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import AllCountriesList from './AllCountriesList';
 import CurrentCountryLine from '../Charts/CurrentCountryLine';
+import CurrentCountryRadar from '../Charts/CurrentCountryRadar';
 import GlobalMap from '../Map/GlobalMap';
 import WWStats from './WWStats';
 
@@ -41,7 +42,7 @@ const MidSectionContainer = () => {
         </Col>
         <Col xs='12' sm='12' md='4' lg='4' xl='4'>
           <div className='currentCountryStats'>
-            <CurrentCountryLine />
+            <CurrentCountryRadar />
           </div>
         </Col>
         <Col xs='12' sm='12' md='4' lg='4' xl='4'>
