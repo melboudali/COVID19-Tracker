@@ -29,7 +29,7 @@ const CurrentCountryStats = ({
             datasets: [
               {
                 // radius: 0,
-                label: "Cases",
+                label: 'Cases',
                 data: Cases,
                 fill: false,
                 borderColor: '#fca903',
@@ -54,15 +54,18 @@ const CurrentCountryStats = ({
           options={{
             responsive: true,
             maintainAspectRatio: false,
+            title: {
+              display: true,
+              text: 'Covid-19 | cases, deaths, recovered'
+            },
             tooltips: {
               enabled: true,
               callbacks: {
                 label: (tooltipItem, data) => {
-                  var label =
+                  let label =
                     data.datasets[tooltipItem.datasetIndex].label || '';
-
                   if (label) {
-                    label += ':';
+                    label += ': ';
                   }
                   label += Math.round(tooltipItem.yLabel * 100) / 100;
                   return label;
