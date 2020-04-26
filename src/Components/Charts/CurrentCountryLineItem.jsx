@@ -1,13 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
 
 const CurrentCountryLineItem = ({
-  WWDates,
   Dates,
   Cases,
   Deaths,
-  Recovered
+  Recovered,
+  CurrentCountryData: { currentCountry }
 }) => {
   return (
     <>
@@ -45,12 +46,13 @@ const CurrentCountryLineItem = ({
           maintainAspectRatio: false,
           title: {
             display: true,
-            text: WWDates
-              ? 'Worl Wide Covid-19 | cases, deaths, recovered'
-              : 'Current Country'
+            text: currentCountry
+              ? `${currentCountry.country}'s Stats`
+              : "World's Stats"
           },
           tooltips: {
             enabled: true,
+            backgroundColor: '#f0f0f0',
             callbacks: {
               label: (tooltipItem, data) => {
                 let label = data.datasets[tooltipItem.datasetIndex].label || '';
@@ -79,7 +81,8 @@ const CurrentCountryLineItem = ({
                   beginAtZero: true
                 }
               }
-            ]
+            ],
+            pointStyle: 'triangle'
           }
         }}
       />
@@ -87,6 +90,10 @@ const CurrentCountryLineItem = ({
   );
 };
 
+const mapStateToProps = state => ({
+  CurrentCountryData: state.CurrentCountryData
+});
+
 CurrentCountryLineItem.propTypes = {};
 
-export default CurrentCountryLineItem;
+export default connect(mapStateToProps)(CurrentCountryLineItem);

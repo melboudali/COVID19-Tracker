@@ -21,7 +21,8 @@ const Countries = ({
   WWStatsFetch,
   setCurrentCountry,
   getCurrentHistory,
-  getWWHistory
+  getWWHistory,
+  clearCurrentHistory
 }) => {
   useEffect(() => {
     getAllCountries();
