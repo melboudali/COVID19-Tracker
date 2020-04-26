@@ -30,7 +30,17 @@ const WWStats = ({
             <span className='sr-only'>Loading...</span>
           </Spinner>
         </div>
-      ) : currentCountry !== null || currentCountryLoading ? (
+      ) : currentCountry === null || allCountriesloading ? (
+        <Child
+          cases={cases}
+          todayCases={todayCases}
+          deaths={deaths}
+          todayDeaths={todayDeaths}
+          recovered={recovered}
+          tests={tests}
+          updated={updated}
+        />
+      ) : (
         <Child
           country={currentCountry.country}
           flag={currentCountry.flag}
@@ -41,16 +51,6 @@ const WWStats = ({
           recovered={currentCountry.recovered}
           tests={currentCountry.tests}
           updated={currentCountry.updated}
-        />
-      ) : (
-        <Child
-          cases={cases}
-          todayCases={todayCases}
-          deaths={deaths}
-          todayDeaths={todayDeaths}
-          recovered={recovered}
-          tests={tests}
-          updated={updated}
         />
       )}
     </div>

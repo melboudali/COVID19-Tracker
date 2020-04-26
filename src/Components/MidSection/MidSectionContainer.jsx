@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import AllCountriesList from './AllCountriesList';
-import CurrentCountryStats from './CurrentCountryStats';
+import CurrentCountryLine from '../Charts/CurrentCountryLine';
 import GlobalMap from '../Map/GlobalMap';
 import WWStats from './WWStats';
 
@@ -26,7 +26,7 @@ const MidSectionContainer = () => {
         </Col>
         <Col xs='12' sm='12' md='4' lg='4' xl='4' className='noPadding'>
           <p className='countriesListHeader'>
-            <i class='far fa-flag'></i>All Countries Stats
+            <i className='far fa-flag'></i>All Countries Stats
           </p>
           <div className='countriesListContainer'>
             <AllCountriesList />
@@ -36,7 +36,7 @@ const MidSectionContainer = () => {
       <Row>
         <Col xs='12' sm='12' md='6' lg='7' xl='7'>
           <div className='currentCountryStats'>
-            <CurrentCountryStats />
+            <CurrentCountryLine />
           </div>
         </Col>
       </Row>

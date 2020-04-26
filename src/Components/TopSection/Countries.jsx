@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getAllCountries, WWStatsFetch } from '../../Actions/Countries';
 import { setCurrentCountry } from '../../Actions/CurrentCountry';
-import { getCurrentHistory } from '../../Actions/DataHistory';
+import { getCurrentHistory, getWWHistory } from '../../Actions/DataHistory';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import AsyncSelect from 'react-select/async';
@@ -16,12 +16,14 @@ const Countries = ({
   getAllCountries,
   WWStatsFetch,
   setCurrentCountry,
-  getCurrentHistory
+  getCurrentHistory,
+  getWWHistory
 }) => {
   useEffect(() => {
     getAllCountries();
     WWStatsFetch();
-  }, [getAllCountries, WWStatsFetch]);
+    getWWHistory();
+  }, [getAllCountries, WWStatsFetch, getWWHistory]);
 
   const [, setInputValue] = useState('');
 
@@ -86,7 +88,6 @@ const Countries = ({
         <Col xs='12' sm='12' md='12' lg='12' xl='12'>
           <div className='countriesSection'>
             <div className='countriesDopdown'>
-              {/* <p>Selected Country: {`${SelectedCountry}`}</p> */}
               {allCountriesloading || allCountriesData === null ? (
                 <div className='Spinner'>
                   <Spinner animation='border' role='status' variant='success'>
@@ -136,7 +137,10 @@ Countries.prototype = {
   allCountriesData: PropTypes.object,
   allCountriesloading: PropTypes.bool.isRequired,
   getAllCountries: PropTypes.func.isRequired,
-  setCurrentCountry: PropTypes.func.isRequired
+  setCurrentCountry: PropTypes.func.isRequired,
+  WWStatsFetch: PropTypes.func.isRequired,
+  getCurrentHistory: PropTypes.func.isRequired,
+  getWWHistory: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -147,5 +151,6 @@ export default connect(mapStateToProps, {
   getAllCountries,
   WWStatsFetch,
   setCurrentCountry,
-  getCurrentHistory
+  getCurrentHistory,
+  getWWHistory
 })(Countries);

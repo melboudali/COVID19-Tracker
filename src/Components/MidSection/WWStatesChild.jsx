@@ -23,7 +23,7 @@ const WWStatesChild = ({
         </h1>
       ) : (
         <h1 className='WWStatsHeader'>
-          <i class='fas fa-globe'></i> Coronavirus World Stats
+          <i className='fas fa-globe'></i> Coronavirus World Stats
         </h1>
       )}
 
