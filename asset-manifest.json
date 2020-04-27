@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/Coronavirus-Update/static/css/main.6327f1f8.chunk.css",
-    "main.js": "/Coronavirus-Update/static/js/main.95b3de06.chunk.js",
-    "main.js.map": "/Coronavirus-Update/static/js/main.95b3de06.chunk.js.map",
+    "main.css": "/Coronavirus-Update/static/css/main.a1b252c2.chunk.css",
+    "main.js": "/Coronavirus-Update/static/js/main.8e0a5ceb.chunk.js",
+    "main.js.map": "/Coronavirus-Update/static/js/main.8e0a5ceb.chunk.js.map",
     "runtime-main.js": "/Coronavirus-Update/static/js/runtime-main.f55a2789.js",
     "runtime-main.js.map": "/Coronavirus-Update/static/js/runtime-main.f55a2789.js.map",
     "static/css/2.de424728.chunk.css": "/Coronavirus-Update/static/css/2.de424728.chunk.css",
-    "static/js/2.ff24b1db.chunk.js": "/Coronavirus-Update/static/js/2.ff24b1db.chunk.js",
-    "static/js/2.ff24b1db.chunk.js.map": "/Coronavirus-Update/static/js/2.ff24b1db.chunk.js.map",
+    "static/js/2.0d36f1ce.chunk.js": "/Coronavirus-Update/static/js/2.0d36f1ce.chunk.js",
+    "static/js/2.0d36f1ce.chunk.js.map": "/Coronavirus-Update/static/js/2.0d36f1ce.chunk.js.map",
     "index.html": "/Coronavirus-Update/index.html",
-    "precache-manifest.dde740b9497f4fcf8a6be0d0bfc94afa.js": "/Coronavirus-Update/precache-manifest.dde740b9497f4fcf8a6be0d0bfc94afa.js",
+    "precache-manifest.52e20d157805bbd11acd4b1f643b6e47.js": "/Coronavirus-Update/precache-manifest.52e20d157805bbd11acd4b1f643b6e47.js",
     "service-worker.js": "/Coronavirus-Update/service-worker.js",
     "static/css/2.de424728.chunk.css.map": "/Coronavirus-Update/static/css/2.de424728.chunk.css.map",
-    "static/css/main.6327f1f8.chunk.css.map": "/Coronavirus-Update/static/css/main.6327f1f8.chunk.css.map",
-    "static/js/2.ff24b1db.chunk.js.LICENSE.txt": "/Coronavirus-Update/static/js/2.ff24b1db.chunk.js.LICENSE.txt"
+    "static/css/main.a1b252c2.chunk.css.map": "/Coronavirus-Update/static/css/main.a1b252c2.chunk.css.map",
+    "static/js/2.0d36f1ce.chunk.js.LICENSE.txt": "/Coronavirus-Update/static/js/2.0d36f1ce.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f55a2789.js",
     "static/css/2.de424728.chunk.css",
-    "static/js/2.ff24b1db.chunk.js",
-    "static/css/main.6327f1f8.chunk.css",
-    "static/js/main.95b3de06.chunk.js"
+    "static/js/2.0d36f1ce.chunk.js",
+    "static/css/main.a1b252c2.chunk.css",
+    "static/js/main.8e0a5ceb.chunk.js"
   ]
 }
