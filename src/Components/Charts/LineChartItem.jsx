@@ -1,18 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
 
-const LineChartItem = ({
-  Dates,
-  Cases,
-  Deaths,
-  Recovered,
-  CurrentCountryData: { currentCountry }
-}) => {
+const LineChartItem = ({ Dates, Cases, Deaths, Recovered }) => {
   return (
     <Line
-      className='Line'
       data={{
         labels: Dates,
         datasets: [
@@ -43,12 +35,6 @@ const LineChartItem = ({
       options={{
         responsive: true,
         maintainAspectRatio: false,
-        title: {
-          display: true,
-          text: currentCountry
-            ? `${currentCountry.country}'s Stats`
-            : "World's Stats"
-        },
         legend: {
           display: true,
           position: 'bottom',
@@ -105,10 +91,11 @@ const LineChartItem = ({
   );
 };
 
-const mapStateToProps = state => ({
-  CurrentCountryData: state.CurrentCountryData
-});
+LineChartItem.propTypes = {
+  Dates: PropTypes.array,
+  Cases: PropTypes.array,
+  Deaths: PropTypes.array,
+  Recovered: PropTypes.array
+};
 
-LineChartItem.propTypes = {};
-
-export default connect(mapStateToProps)(LineChartItem);
+export default LineChartItem;

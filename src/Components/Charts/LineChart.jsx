@@ -20,7 +20,7 @@ const LineChart = ({
   const [DataHistory, setDataHistory] = useState(null);
 
   useEffect(() => {
-    Dates === null && WWDates !== null
+    WWDates && !Dates
       ? setDataHistory({
           Dates: WWDates,
           Cases: WWCases,
@@ -56,13 +56,13 @@ const LineChart = ({
 };
 
 LineChart.propTypes = {
-  WWDates: PropTypes.number,
-  Cases: PropTypes.number,
-  WWCases: PropTypes.number,
-  Deaths: PropTypes.number,
-  WWDeaths: PropTypes.number,
-  Recovered: PropTypes.number,
-  WWRecovered: PropTypes.number,
+  WWDates: PropTypes.array,
+  Cases: PropTypes.array,
+  WWCases: PropTypes.array,
+  Deaths: PropTypes.array,
+  WWDeaths: PropTypes.array,
+  Recovered: PropTypes.array,
+  WWRecovered: PropTypes.array,
   currentCountryLoading: PropTypes.bool
 };
 
