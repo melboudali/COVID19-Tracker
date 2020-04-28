@@ -18,10 +18,10 @@ const PieChartItem = ({ Cases, Deaths, Recovered }) => {
       options={{
         responsive: true,
         maintainAspectRatio: false,
-        title: {
-          display: true,
-          text: "World's Stats"
-        },
+        // title: {
+        //   display: true,
+        //   text: "World's Stats"
+        // },
         legend: {
           display: true,
           position: 'bottom',

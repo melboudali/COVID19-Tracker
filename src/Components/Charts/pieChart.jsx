@@ -6,21 +6,20 @@ import PropTypes from 'prop-types';
 
 const PieChart = ({
   AllCountriesData: { WWStats, allCountriesloading },
-  CurrentCountryData: { currentCountry, currentCountryLoading }
+  CurrentCountryData: { currentCountry }
 }) => {
   useEffect(() => {
-    if (WWStats !== null) {
-      setDatas({
-        Cases: WWStats.cases,
-        Deaths: WWStats.deaths,
-        Recovered: WWStats.recovered
-      });
-    }
-    if (currentCountry !== null) {
+    if (currentCountry) {
       setDatas({
         Cases: currentCountry.cases,
         Deaths: currentCountry.deaths,
         Recovered: currentCountry.recovered
+      });
+    } else if (WWStats) {
+      setDatas({
+        Cases: WWStats.cases,
+        Deaths: WWStats.deaths,
+        Recovered: WWStats.recovered
       });
     }
   }, [WWStats, currentCountry]);
@@ -29,7 +28,7 @@ const PieChart = ({
 
   return (
     <>
-      {getDatas === null || allCountriesloading ? (
+      {!getDatas || allCountriesloading ? (
         <div className='Spinner'>
           <Spinner animation='border' role='status' variant='success'>
             <span className='sr-only'>Loading...</span>
