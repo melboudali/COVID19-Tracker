@@ -57,7 +57,7 @@ const LineChartItem = ({ Dates, Cases, Deaths, Recovered }) => {
                 label += ': ';
               }
               label += Math.round(tooltipItem.yLabel * 100) / 100;
-              return label;
+              return label.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
             }
           }
         },

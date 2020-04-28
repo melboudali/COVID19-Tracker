@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 const PieChartItem = ({ Cases, Deaths, Recovered }) => {
   return (
     <Pie
-      className='pie'
       data={{
         datasets: [
           {
@@ -37,12 +36,27 @@ const PieChartItem = ({ Cases, Deaths, Recovered }) => {
           borderColor: '#8a8a8a',
           titleFontColor: '#4a4a4a',
           bodyFontColor: '#4a4a4a',
+          callbacks: {
+            label: function (tooltipItem, data) {
+              const dataset = data.datasets[tooltipItem.datasetIndex];
+              const total = dataset.data.reduce(
+                (previousValue, currentValue) => previousValue + currentValue
+              );
+              return `${data.labels[tooltipItem.index]}: ${Math.floor(
+                (dataset.data[tooltipItem.index] / total) * 100 + 0.5
+              )}%`;
+            }
+          }
         }
       }}
     />
   );
 };
 
-PieChartItem.propTypes = {};
+PieChartItem.propTypes = {
+  Cases: PropTypes.array,
+  Deaths: PropTypes.array,
+  Recovered: PropTypes.array
+};
 
 export default PieChartItem;
