@@ -88,10 +88,10 @@ const BarChartItem = ({ Dates, Cases, Deaths, Recovered }) => {
 };
 
 BarChartItem.propTypes = {
-  Dates: PropTypes.number,
-  Cases: PropTypes.number,
-  Deaths: PropTypes.number,
-  Recovered: PropTypes.number
+  Dates: PropTypes.array,
+  Cases: PropTypes.array,
+  Deaths: PropTypes.array,
+  Recovered: PropTypes.array
 };
 
 export default BarChartItem;

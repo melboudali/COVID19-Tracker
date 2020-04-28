@@ -59,14 +59,14 @@ const mapStateToProps = state => ({
 });
 
 BarChart.propTypes = {
-  Dates: PropTypes.number,
-  Cases: PropTypes.number,
-  Deaths: PropTypes.number,
-  Recovered: PropTypes.number,
-  WWDates: PropTypes.number,
-  WWCases: PropTypes.number,
-  WWDeaths: PropTypes.number,
-  WWRecovered: PropTypes.number
+  Dates: PropTypes.array,
+  Cases: PropTypes.array,
+  Deaths: PropTypes.array,
+  Recovered: PropTypes.array,
+  WWDates: PropTypes.array,
+  WWCases: PropTypes.array,
+  WWDeaths: PropTypes.array,
+  WWRecovered: PropTypes.array
 };
 
 export default connect(mapStateToProps)(BarChart);
