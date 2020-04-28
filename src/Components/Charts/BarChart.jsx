@@ -13,13 +13,14 @@ const BarChart = ({
     WWDates,
     WWCases,
     WWDeaths,
-    WWRecovered
+    WWRecovered,
+    currentCountryLoading
   }
 }) => {
   const [getDateHistory, setDataHistory] = useState(null);
 
   useEffect(() => {
-    !Dates && WWDates
+    WWDates && !Dates
       ? setDataHistory({
           Dates: WWDates,
           Cases: WWCases,
@@ -36,7 +37,7 @@ const BarChart = ({
 
   return (
     <>
-      {!getDateHistory ? (
+      {WWDates === null || currentCountryLoading ? (
         <div className='Spinner'>
           <Spinner animation='border' role='status' variant='success'>
             <span className='sr-only'>Loading...</span>

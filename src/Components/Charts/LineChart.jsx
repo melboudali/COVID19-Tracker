@@ -37,7 +37,7 @@ const LineChart = ({
 
   return (
     <>
-      {!WWDates || currentCountryLoading ? (
+      {WWDates === null || currentCountryLoading ? (
         <div className='Spinner'>
           <Spinner animation='border' role='status' variant='success'>
             <span className='sr-only'>Loading...</span>
