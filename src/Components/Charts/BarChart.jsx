@@ -67,7 +67,8 @@ BarChart.propTypes = {
   WWDates: PropTypes.array,
   WWCases: PropTypes.array,
   WWDeaths: PropTypes.array,
-  WWRecovered: PropTypes.array
+  WWRecovered: PropTypes.array,
+  currentCountryLoading: PropTypes.bool
 };
 
 export default connect(mapStateToProps)(BarChart);
