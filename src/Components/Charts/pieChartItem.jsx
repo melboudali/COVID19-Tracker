@@ -54,9 +54,9 @@ const PieChartItem = ({ Cases, Deaths, Recovered }) => {
 };
 
 PieChartItem.propTypes = {
-  Cases: PropTypes.array,
-  Deaths: PropTypes.array,
-  Recovered: PropTypes.array
+  Cases: PropTypes.number,
+  Deaths: PropTypes.number,
+  Recovered: PropTypes.number
 };
 
 export default PieChartItem;
