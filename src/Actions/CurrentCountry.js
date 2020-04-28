@@ -1,8 +1,4 @@
-import {
-  SET_CURRENT_COUNTRY,
-  SET_CURRENT_COUNTRY_LOADING,
-  SET_CURRENT_COUNTRY_ERROR
-} from './Types';
+import { SET_CURRENT_COUNTRY, SET_CURRENT_COUNTRY_LOADING } from './Types';
 
 export const setCurrentCountry = country => {
   setLoading();

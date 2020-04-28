@@ -12,8 +12,8 @@ export const getCurrentHistory = country => async dispatch => {
   let Deaths = [];
   let Recovered = [];
 
+  setLoading();
   try {
-    setLoading();
     const res = await fetch(
       `https://corona.lmao.ninja/v2/historical/${country}`
     );
@@ -58,8 +58,9 @@ export const getWWHistory = () => async dispatch => {
   let Cases = [];
   let Deaths = [];
   let Recovered = [];
+
+  setLoading();
   try {
-    setLoading();
     const res = await fetch('https://corona.lmao.ninja/v2/historical/all');
     if (!res.ok) {
       dispatch({

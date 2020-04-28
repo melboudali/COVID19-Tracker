@@ -5,10 +5,9 @@ import {
   ERROR
 } from './Types';
 
-// Get All Countries
 export const getAllCountries = () => async dispatch => {
+  setLoading();
   try {
-    setLoading();
     const res = await fetch('https://corona.lmao.ninja/v2/countries');
     if (!res.ok) {
       dispatch({
@@ -31,8 +30,8 @@ export const getAllCountries = () => async dispatch => {
 };
 
 export const WWStatsFetch = () => async dispatch => {
+  setLoading();
   try {
-    setLoading();
     const res = await fetch('https://corona.lmao.ninja/v2/all');
     dispatch({ type: GET_WWStats, payload: await res.json() });
   } catch (err) {
