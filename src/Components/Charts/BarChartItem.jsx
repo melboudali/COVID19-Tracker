@@ -5,30 +5,25 @@ import PropTypes from 'prop-types';
 const BarChartItem = ({ Dates, Cases, Deaths, Recovered }) => {
   return (
     <Bar
-      className='Bar'
       data={{
         labels: Dates,
         datasets: [
           {
-            radius: 0,
             label: 'Cases',
             data: Cases,
             fill: false,
-            borderColor: '#fca903',
             backgroundColor: '#fca903'
           },
           {
             label: 'Deaths',
             data: Deaths,
             fill: false,
-            borderColor: '#d14356',
             backgroundColor: '#d14356'
           },
           {
             label: 'Recovered',
             data: Recovered,
             fill: false,
-            borderColor: '#49d170',
             backgroundColor: '#49d170'
           }
         ]
@@ -36,10 +31,6 @@ const BarChartItem = ({ Dates, Cases, Deaths, Recovered }) => {
       options={{
         responsive: true,
         maintainAspectRatio: false,
-        title: {
-          display: true,
-          text: "World's Stats"
-        },
         legend: {
           display: true,
           position: 'bottom',
@@ -96,6 +87,11 @@ const BarChartItem = ({ Dates, Cases, Deaths, Recovered }) => {
   );
 };
 
-BarChartItem.propTypes = {};
+BarChartItem.propTypes = {
+  Dates: PropTypes.number,
+  Cases: PropTypes.number,
+  Deaths: PropTypes.number,
+  Recovered: PropTypes.number
+};
 
 export default BarChartItem;
