@@ -13,11 +13,11 @@ const BarChart = ({
     WWDates,
     WWCases,
     WWDeaths,
-    WWRecovered,
-    currentCountryLoading
+    WWRecovered
   }
 }) => {
   const [getDateHistory, setDataHistory] = useState(null);
+
   useEffect(() => {
     !Dates && WWDates
       ? setDataHistory({
@@ -36,7 +36,7 @@ const BarChart = ({
 
   return (
     <>
-      {!WWDates || currentCountryLoading ? (
+      {!getDateHistory ? (
         <div className='Spinner'>
           <Spinner animation='border' role='status' variant='success'>
             <span className='sr-only'>Loading...</span>
@@ -58,6 +58,15 @@ const mapStateToProps = state => ({
   DataHistory: state.DataHistory
 });
 
-BarChart.propTypes = {};
+BarChart.propTypes = {
+  Dates: PropTypes.number,
+  Cases: PropTypes.number,
+  Deaths: PropTypes.number,
+  Recovered: PropTypes.number,
+  WWDates: PropTypes.number,
+  WWCases: PropTypes.number,
+  WWDeaths: PropTypes.number,
+  WWRecovered: PropTypes.number
+};
 
 export default connect(mapStateToProps)(BarChart);
