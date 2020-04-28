@@ -1,26 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import CurrentCountryLineItem from './CurrentCountryLineItem';
+import React, { useState, useEffect } from 'react';
+import BarChartItem from './BarChartItem';
 import { connect } from 'react-redux';
 import Spinner from 'react-bootstrap/Spinner';
 import PropTypes from 'prop-types';
 
-const CurrentCountryLine = ({
+const BarChart = ({
   DataHistory: {
     Dates,
-    WWDates,
     Cases,
-    WWCases,
     Deaths,
-    WWDeaths,
     Recovered,
+    WWDates,
+    WWCases,
+    WWDeaths,
     WWRecovered,
     currentCountryLoading
   }
 }) => {
-  const [DataHistory, setDataHistory] = useState(null);
-
+  const [getDateHistory, setDataHistory] = useState(null);
   useEffect(() => {
-    Dates === null && WWDates !== null
+    !Dates && WWDates
       ? setDataHistory({
           Dates: WWDates,
           Cases: WWCases,
@@ -33,7 +32,7 @@ const CurrentCountryLine = ({
           Deaths,
           Recovered
         });
-  }, [WWDates, Dates]);
+  }, [Dates, WWDates]);
 
   return (
     <>
@@ -44,30 +43,21 @@ const CurrentCountryLine = ({
           </Spinner>
         </div>
       ) : (
-        <CurrentCountryLineItem
-          Dates={DataHistory.Dates}
-          Cases={DataHistory.Cases}
-          Deaths={DataHistory.Deaths}
-          Recovered={DataHistory.Recovered}
+        <BarChartItem
+          Dates={getDateHistory.Dates}
+          Cases={getDateHistory.Cases}
+          Deaths={getDateHistory.Deaths}
+          Recovered={getDateHistory.Recovered}
         />
       )}
     </>
   );
 };
 
-CurrentCountryLine.propTypes = {
-  WWDates: PropTypes.number,
-  Cases: PropTypes.number,
-  WWCases: PropTypes.number,
-  Deaths: PropTypes.number,
-  WWDeaths: PropTypes.number,
-  Recovered: PropTypes.number,
-  WWRecovered: PropTypes.number,
-  currentCountryLoading: PropTypes.bool
-};
-
 const mapStateToProps = state => ({
   DataHistory: state.DataHistory
 });
 
-export default connect(mapStateToProps)(CurrentCountryLine);
+BarChart.propTypes = {};
+
+export default connect(mapStateToProps)(BarChart);

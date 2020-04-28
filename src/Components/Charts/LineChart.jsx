@@ -1,25 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import CurrentCountryBarItem from './CurrentCountryBarItem';
+import React, { useEffect, useState } from 'react';
+import LineChartItem from './LineChartItem';
 import { connect } from 'react-redux';
 import Spinner from 'react-bootstrap/Spinner';
 import PropTypes from 'prop-types';
 
-const CurrentCountryBar = ({
+const LineChart = ({
   DataHistory: {
     Dates,
-    Cases,
-    Deaths,
-    Recovered,
     WWDates,
+    Cases,
     WWCases,
+    Deaths,
     WWDeaths,
+    Recovered,
     WWRecovered,
     currentCountryLoading
   }
 }) => {
-  const [getDateHistory, setDataHistory] = useState(null);
+  const [DataHistory, setDataHistory] = useState(null);
+
   useEffect(() => {
-    !Dates && WWDates
+    Dates === null && WWDates !== null
       ? setDataHistory({
           Dates: WWDates,
           Cases: WWCases,
@@ -32,7 +33,7 @@ const CurrentCountryBar = ({
           Deaths,
           Recovered
         });
-  }, [Dates, WWDates]);
+  }, [WWDates, Dates]);
 
   return (
     <>
@@ -43,21 +44,30 @@ const CurrentCountryBar = ({
           </Spinner>
         </div>
       ) : (
-        <CurrentCountryBarItem
-          Dates={getDateHistory.Dates}
-          Cases={getDateHistory.Cases}
-          Deaths={getDateHistory.Deaths}
-          Recovered={getDateHistory.Recovered}
+        <LineChartItem
+          Dates={DataHistory.Dates}
+          Cases={DataHistory.Cases}
+          Deaths={DataHistory.Deaths}
+          Recovered={DataHistory.Recovered}
         />
       )}
     </>
   );
 };
 
+LineChart.propTypes = {
+  WWDates: PropTypes.number,
+  Cases: PropTypes.number,
+  WWCases: PropTypes.number,
+  Deaths: PropTypes.number,
+  WWDeaths: PropTypes.number,
+  Recovered: PropTypes.number,
+  WWRecovered: PropTypes.number,
+  currentCountryLoading: PropTypes.bool
+};
+
 const mapStateToProps = state => ({
   DataHistory: state.DataHistory
 });
 
-CurrentCountryBar.propTypes = {};
-
-export default connect(mapStateToProps)(CurrentCountryBar);
+export default connect(mapStateToProps)(LineChart);

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
 
-const CurrentCountryLineItem = ({
+const LineChartItem = ({
   Dates,
   Cases,
   Deaths,
@@ -109,6 +109,6 @@ const mapStateToProps = state => ({
   CurrentCountryData: state.CurrentCountryData
 });
 
-CurrentCountryLineItem.propTypes = {};
+LineChartItem.propTypes = {};
 
-export default connect(mapStateToProps)(CurrentCountryLineItem);
+export default connect(mapStateToProps)(LineChartItem);

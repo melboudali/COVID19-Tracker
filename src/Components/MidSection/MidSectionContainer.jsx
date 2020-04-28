@@ -3,8 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import AllCountriesList from './AllCountriesList';
-import CurrentCountryLine from '../Charts/CurrentCountryLine';
-import CurrentCountryBar from '../Charts/CurrentCountryBar';
+import LineChart from '../Charts/LineChart';
+import BarChart from '../Charts/BarChart';
 import PieChart from '../Charts/PieChart';
 import GlobalMap from '../Map/GlobalMap';
 import WWStats from './WWStats';
@@ -38,12 +38,12 @@ const MidSectionContainer = () => {
       <Row>
         <Col xs='12' sm='12' md='4' lg='4' xl='4'>
           <div className='currentCountryStats'>
-            <CurrentCountryLine />
+            <LineChart />
           </div>
         </Col>
         <Col xs='12' sm='12' md='4' lg='4' xl='4'>
           <div className='currentCountryStats'>
-            <CurrentCountryBar />
+            <BarChart />
           </div>
         </Col>
         <Col xs='12' sm='12' md='4' lg='4' xl='4'>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
 
-const CurrentCountryBarItem = ({ Dates, Cases, Deaths, Recovered }) => {
+const BarChartItem = ({ Dates, Cases, Deaths, Recovered }) => {
   return (
     <Bar
       className='Bar'
@@ -96,6 +96,6 @@ const CurrentCountryBarItem = ({ Dates, Cases, Deaths, Recovered }) => {
   );
 };
 
-CurrentCountryBarItem.propTypes = {};
+BarChartItem.propTypes = {};
 
-export default CurrentCountryBarItem;
+export default BarChartItem;
