@@ -36,11 +36,9 @@ const MidSectionContainer = () => {
         </Col>
       </Row>
       <Row className='rowPadding'>
-        <Col xs='12' sm='12' md='12' lg='12' xl='12' className='noPadding'>
-          <p className='countriesListHeader'>
-            <i className='fas fa-chart-pie'></i>All Countries Cahrts
+          <p className='chartsTitle'>
+            <i className='fas fa-chart-pie'></i>All Countries Charts
           </p>
-        </Col>
         <Col xs='12' sm='12' md='4' lg='4' xl='4' className='noPadding'>
           <div className='charts'>
             <LineChart />
