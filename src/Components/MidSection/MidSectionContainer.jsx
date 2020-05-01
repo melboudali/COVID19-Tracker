@@ -35,19 +35,24 @@ const MidSectionContainer = () => {
           </div>
         </Col>
       </Row>
-      <Row>
-        <Col xs='12' sm='12' md='4' lg='4' xl='4'>
-          <div className='currentCountryStats'>
+      <Row className='rowPadding'>
+        <Col xs='12' sm='12' md='12' lg='12' xl='12' className='noPadding'>
+          <p className='countriesListHeader'>
+            <i className='fas fa-chart-pie'></i>All Countries Cahrts
+          </p>
+        </Col>
+        <Col xs='12' sm='12' md='4' lg='4' xl='4' className='noPadding'>
+          <div className='charts'>
             <LineChart />
           </div>
         </Col>
-        <Col xs='12' sm='12' md='4' lg='4' xl='4'>
-          <div className='currentCountryStats'>
+        <Col xs='12' sm='12' md='4' lg='4' xl='4' className='noPadding'>
+          <div className='charts'>
             <BarChart />
           </div>
         </Col>
-        <Col xs='12' sm='12' md='4' lg='4' xl='4'>
-          <div className='currentCountryStats'>
+        <Col xs='12' sm='12' md='4' lg='4' xl='4' className='noPadding'>
+          <div className='charts'>
             <PieChart />
           </div>
         </Col>
