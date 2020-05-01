@@ -130,7 +130,8 @@ const GlobalMap = ({
               offsetLeft={3}
               className='popupup'
               onClose={() => {
-                setPopupState({ ...popupState, state: false });
+                if (!currentCountry)
+                  setPopupState({ ...popupState, state: false });
               }}>
               <div>
                 <h6 className='popupHeader'>
