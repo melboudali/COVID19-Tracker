@@ -186,7 +186,7 @@ code {
   text-align: center;
 }
 
-.countryFlag{
+.countryFlag {
   width: 55px;
   margin-right: 10px;
   border-radius: 3px;
@@ -237,9 +237,9 @@ code {
   background-color: #d32a41;
   border-radius: 5px;
   padding: 10px 15px;
-  -webkit-box-shadow: 0px 0px 32px -10px rgba(255,0,0,1);
-  -moz-box-shadow: 0px 0px 32px -10px rgba(255,0,0,1);
-  box-shadow: 0px 0px 32px -10px rgba(255,0,0,1);
+  -webkit-box-shadow: 0px 0px 32px -10px rgba(255, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 32px -10px rgba(255, 0, 0, 1);
+  box-shadow: 0px 0px 32px -10px rgba(255, 0, 0, 1);
 }
 
 .WWRecovered {
@@ -270,7 +270,7 @@ code {
 .WWtodayResults {
   color: rgb(255, 255, 255);
   margin-left: 3px;
-  padding: .5px 2px;
+  padding: 0.5px 2px;
   font-size: 0.6rem;
   vertical-align: middle;
   background-color: #c92137;
@@ -311,23 +311,36 @@ code {
 /* Popup */
 .circle {
   color: #ff3939;
-  opacity: .8;
+  opacity: 0.6;
+  border-radius: 20px;
 }
 .circle:hover {
   color: #ff3939;
   opacity: 1;
+  -webkit-box-shadow: 0px 0px 12px 7px #ff0000be;
+  -moz-box-shadow: 0px 0px 12px 7px #ff0000be;
+  box-shadow: 0px 0px 12px 7px #ff0000be;
 }
 
 /* Popup */
 .selectedCircle {
   color: #10da75;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 12px 7px #00ff409d;
+  -moz-box-shadow: 0px 0px 12px 7px #00ff409d;
+  box-shadow: 0px 0px 12px 7px #00ff409d;
 }
 
 .mapboxgl-popup-content {
-  background-color: rgb(0, 0, 0) !important;
+  background-color: rgba(0, 0, 0, 0.884) !important;
+  height: fit-content !important;
   padding: 5px !important;
   margin: 0 !important;
-  height: fit-content !important;
+  border: 1px solid rgba(0, 255, 128, 0.356);
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 12px 7px #00ff4018 !important;
+  -moz-box-shadow: 0px 0px 12px 7px #00ff4018 !important;
+  box-shadow: 0px 0px 12px 7px #00ff4018 !important;
 }
 
 .mapboxgl-popup-tip {
