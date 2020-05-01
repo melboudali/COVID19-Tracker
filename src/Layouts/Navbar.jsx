@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
@@ -6,9 +6,6 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
 const NavComp = () => {
-  useEffect(() => {
-
-  }, []);
   return (
     <div>
       <Navbar className='Navbar' variant='light' expand='lg' sticky='top'>
@@ -16,9 +13,9 @@ const NavComp = () => {
           <OverlayTrigger
             placement='bottom'
             delay={{ show: 150, hide: 150 }}
-            overlay={<Tooltip className='myToolTip'>Covid-19 Update</Tooltip>}>
+            overlay={<Tooltip className='myToolTip'>COVID-19 Tracker</Tooltip>}>
             <Navbar.Brand href='#home' className='title'>
-              <i className='fas fa-lungs-virus' /> Covid-19 Update
+              <i className='fas fa-lungs-virus' /> COVID-19 Tracker
             </Navbar.Brand>
           </OverlayTrigger>
 
@@ -27,7 +24,9 @@ const NavComp = () => {
             <Nav className='mr-auto justify-content-end navWidth'>
               <Nav.Link href='#home'>
                 <i className='fas fa-home navIcons'></i>
-                {window.innerWidth<992 && <span className="navIconsSpan">Home</span>}
+                {window.innerWidth < 992 && (
+                  <span className='navIconsSpan'>Home</span>
+                )}
               </Nav.Link>
               <OverlayTrigger
                 placement='bottom'
@@ -39,7 +38,9 @@ const NavComp = () => {
                   href='https://github.com/MedElBoudali/Coronavirus-Update'
                   target='_blank'>
                   <i className='fab fa-github navIcons'></i>
-                  {window.innerWidth<992 && <span className="navIconsSpan">Github Repositorie</span>}
+                  {window.innerWidth < 992 && (
+                    <span className='navIconsSpan'>Github Repositorie</span>
+                  )}
                 </Nav.Link>
               </OverlayTrigger>
 
@@ -53,7 +54,11 @@ const NavComp = () => {
                 }>
                 <Nav.Link href='https://www.who.int/' target='_blank'>
                   <i className='fas fa-laptop-medical navIcons'></i>
-                  {window.innerWidth<992 && <span className="navIconsSpan">World Health Organization</span>}
+                  {window.innerWidth < 992 && (
+                    <span className='navIconsSpan'>
+                      World Health Organization
+                    </span>
+                  )}
                 </Nav.Link>
               </OverlayTrigger>
             </Nav>
