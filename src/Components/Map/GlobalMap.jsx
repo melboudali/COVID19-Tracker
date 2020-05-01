@@ -97,13 +97,27 @@ const GlobalMap = ({
               offsetTop={-15}
               offsetLeft={-5}>
               {currentCountry ? (
-                country.countryInfo.lat === currentCountry.lat ? (
+                country.countryInfo.lat === currentCountry.lat &&
+                country.countryInfo.long === currentCountry.long ? (
                   <i className='fas fa-circle selectedCircle'></i>
                 ) : (
                   <i className='fas fa-circle circle'></i>
                 )
               ) : (
-                <i className='fas fa-circle circle'></i>
+                <i
+                  className='fas fa-circle circle'
+                  onClick={() =>
+                    setPopupState({
+                      state: true,
+                      name: country.country,
+                      flag: country.countryInfo.flag,
+                      cases: country.cases,
+                      deaths: country.deaths,
+                      recovered: country.recovered,
+                      lat: country.countryInfo.lat,
+                      long: country.countryInfo.long
+                    })
+                  }></i>
               )}
             </Marker>
           ))}
@@ -113,8 +127,11 @@ const GlobalMap = ({
               longitude={popupState.long}
               closeButton={false}
               offsetTop={-15}
-              offsetLeft={0}
-              className='popupup'>
+              offsetLeft={3}
+              className='popupup'
+              onClose={() => {
+                setPopupState({ ...popupState, state: false });
+              }}>
               <div>
                 <h6 className='popupHeader'>
                   <img

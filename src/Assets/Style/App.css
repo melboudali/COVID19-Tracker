@@ -311,11 +311,16 @@ code {
 /* Popup */
 .circle {
   color: #ff3939;
+  opacity: .8;
+}
+.circle:hover {
+  color: #ff3939;
+  opacity: 1;
 }
 
 /* Popup */
 .selectedCircle {
-  color: #ff3939;
+  color: #10da75;
 }
 
 .mapboxgl-popup-content {
