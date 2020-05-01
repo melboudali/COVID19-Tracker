@@ -6,6 +6,11 @@ import {
   SET_HiSTORY_CURRENT_COUNTRY_ERROR
 } from './Types';
 
+let baseUrl;
+process.env.NODE_ENV
+  ? (baseUrl = process.env.REACT_APP_BASE_URL)
+  : (baseUrl = process.env.BASE_URL);
+  
 export const getCurrentHistory = country => async dispatch => {
   let Dates = [];
   let Cases = [];
@@ -15,7 +20,7 @@ export const getCurrentHistory = country => async dispatch => {
   setLoading();
   try {
     const res = await fetch(
-      `https://corona.lmao.ninja/v2/historical/${country}`
+      `${baseUrl}v2/historical/${country}`
     );
     if (!res.ok) {
       dispatch({
@@ -61,7 +66,7 @@ export const getWWHistory = () => async dispatch => {
 
   setLoading();
   try {
-    const res = await fetch('https://corona.lmao.ninja/v2/historical/all');
+    const res = await fetch(`${baseUrl}v2/historical/all`);
     if (!res.ok) {
       dispatch({
         type: SET_HiSTORY_CURRENT_COUNTRY_ERROR,
