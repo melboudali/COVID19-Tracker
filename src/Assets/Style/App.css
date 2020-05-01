@@ -313,6 +313,11 @@ code {
   color: #ff3939;
 }
 
+/* Popup */
+.selectedCircle {
+  color: #ff3939;
+}
+
 .mapboxgl-popup-content {
   background-color: rgb(0, 0, 0) !important;
   padding: 5px !important;

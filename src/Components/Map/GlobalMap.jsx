@@ -38,23 +38,36 @@ const GlobalMap = ({
   });
 
   useEffect(() => {
-    currentCountry !== null && !currentCountryLoading
-      ? setViewPort({
-          ...viewPort,
-          latitude: currentCountry.lat,
-          longitude: currentCountry.long,
-          zoom: 3.5,
-          transitionDuration: 3000,
-          transitionInterpolator: new FlyToInterpolator()
-        })
-      : setViewPort({
-          ...viewPort,
-          latitude: 16,
-          longitude: 27,
-          zoom: 1.3,
-          transitionDuration: 3000,
-          transitionInterpolator: new FlyToInterpolator()
-        });
+    if (currentCountry && !currentCountryLoading) {
+      setViewPort({
+        ...viewPort,
+        latitude: currentCountry.lat,
+        longitude: currentCountry.long,
+        zoom: 3.5,
+        transitionDuration: 3000,
+        transitionInterpolator: new FlyToInterpolator()
+      });
+      setPopupState({
+        state: true,
+        name: currentCountry.country,
+        flag: currentCountry.flag,
+        cases: currentCountry.cases,
+        deaths: currentCountry.deaths,
+        recovered: currentCountry.recovered,
+        lat: currentCountry.lat,
+        long: currentCountry.long
+      });
+    } else {
+      setViewPort({
+        ...viewPort,
+        latitude: 16,
+        longitude: 27,
+        zoom: 1.3,
+        transitionDuration: 3000,
+        transitionInterpolator: new FlyToInterpolator()
+      });
+      setPopupState({ ...popupState, state: false });
+    }
     // eslint-disable-next-line
   }, [currentCountry, currentCountryLoading]);
 
@@ -83,23 +96,15 @@ const GlobalMap = ({
               longitude={country.countryInfo.long}
               offsetTop={-15}
               offsetLeft={-5}>
-              <i
-                className='fas fa-circle circle'
-                onMouseEnter={() =>
-                  setPopupState({
-                    state: true,
-                    name: country.country,
-                    flag: country.countryInfo.flag,
-                    cases: country.cases,
-                    deaths: country.deaths,
-                    recovered: country.recovered,
-                    lat: country.countryInfo.lat,
-                    long: country.countryInfo.long
-                  })
-                }
-                onMouseLeave={() =>
-                  setPopupState({ ...popupState, state: false })
-                }></i>
+              {currentCountry ? (
+                country.countryInfo.lat === currentCountry.lat ? (
+                  <i className='fas fa-circle selectedCircle'></i>
+                ) : (
+                  <i className='fas fa-circle circle'></i>
+                )
+              ) : (
+                <i className='fas fa-circle circle'></i>
+              )}
             </Marker>
           ))}
           {popupState.state && (
@@ -107,12 +112,9 @@ const GlobalMap = ({
               latitude={popupState.lat}
               longitude={popupState.long}
               closeButton={false}
-              offsetTop={-10}
-              offsetLeft={-5}
-              className='popupup'
-              onClose={() => {
-                setPopupState({ ...popupState, state: false });
-              }}>
+              offsetTop={-15}
+              offsetLeft={0}
+              className='popupup'>
               <div>
                 <h6 className='popupHeader'>
                   <img
@@ -123,22 +125,22 @@ const GlobalMap = ({
                   {popupState.name}
                 </h6>
                 <p className='popupCases'>
-                  Cases:{' '}
-                  {popupState.cases
+                  Cases:
+                  {` ${popupState.cases
                     .toString()
-                    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`}
                 </p>
                 <p className='popupDeaths'>
-                  Deaths:{' '}
-                  {popupState.deaths
+                  Deaths:
+                  {` ${popupState.deaths
                     .toString()
-                    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`}
                 </p>
                 <p className='popupRecovered'>
-                  Recovered:{' '}
-                  {popupState.recovered
+                  Recovered:
+                  {` ${popupState.recovered
                     .toString()
-                    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`}
                 </p>
               </div>
             </Popup>
