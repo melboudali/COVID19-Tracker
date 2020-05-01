@@ -538,6 +538,20 @@ code {
   box-shadow: 0 1px 2px 0 rgb(131, 131, 131) !important;
 }
 
+.chartsTitle{
+  color: #3b3b3b;
+  font-family: 'Varela Round';
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 0 0 3px 10px !important;
+  padding: 0 !important;
+  display: block;
+  width: 100%;
+}
+
+.chartsTitle i {
+  margin-right: 5px;
+}
 /* ScrollBar*/
 ::-webkit-scrollbar {
   width: 4px !important;
