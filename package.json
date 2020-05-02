@@ -1,6 +1,6 @@
 {
   "name": "my-react-boilerplate",
-  "homepage": "https://medelboudali.github.io/Coronavirus-Update",
+  "homepage": "https://medelboudali.github.io/COVID19-Tracker/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
