@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
+import logo from '../Assets/images/logo.svg';
 
 const NavComp = () => {
   return (
@@ -14,8 +15,9 @@ const NavComp = () => {
             placement='bottom'
             delay={{ show: 150, hide: 150 }}
             overlay={<Tooltip className='myToolTip'>COVID-19 Tracker</Tooltip>}>
-            <Navbar.Brand href='#home' className='title'>
-              <i className='fas fa-lungs-virus' /> COVID-19 Tracker
+            <Navbar.Brand href='#home' className='titleContiner'>
+              <img src={logo} alt='logo' className='logo' />
+              <p className='title'>COVID-19 Tracker</p>
             </Navbar.Brand>
           </OverlayTrigger>
 

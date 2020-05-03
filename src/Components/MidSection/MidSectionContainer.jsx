@@ -28,7 +28,7 @@ const MidSectionContainer = () => {
         </Col>
         <Col xs='12' sm='12' md='4' lg='4' xl='4' className='noPadding'>
           <p className='countriesListHeader'>
-            <i className='far fa-flag'></i>All Countries Stats
+            <i className='far fa-flag'></i>Country Breakdown
           </p>
           <div className='countriesListContainer'>
             <AllCountriesList />

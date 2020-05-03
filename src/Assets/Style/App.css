@@ -31,10 +31,23 @@ code {
   overflow: hidden;
 }
 
+.titleContainer {
+  display: flex;
+  align-items: center;
+}
+
 .title {
   font-family: 'Varela Round';
   font-weight: 700;
   color: rgb(100, 100, 100) !important;
+  display: inline;
+}
+
+.logo {
+  width: 24px;
+  height: 24px;
+  margin: -3px 10px 0 0;
+  padding: 0;
 }
 
 .fa-lungs-virus {
