@@ -10,7 +10,7 @@ let baseUrl;
 process.env.NODE_ENV
   ? (baseUrl = process.env.REACT_APP_BASE_URL)
   : (baseUrl = process.env.BASE_URL);
-  
+
 export const getCurrentHistory = country => async dispatch => {
   let Dates = [];
   let Cases = [];
@@ -19,9 +19,7 @@ export const getCurrentHistory = country => async dispatch => {
 
   setLoading();
   try {
-    const res = await fetch(
-      `${baseUrl}v2/historical/${country}`
-    );
+    const res = await fetch(`${baseUrl}v2/historical/${country}`);
     if (!res.ok) {
       dispatch({
         type: SET_HiSTORY_CURRENT_COUNTRY_ERROR,

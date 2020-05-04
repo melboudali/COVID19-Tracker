@@ -13,7 +13,7 @@ process.env.NODE_ENV
 export const getAllCountries = () => async dispatch => {
   setLoading();
   try {
-    const res = await fetch(`${process.env.REACT_APP_BASE_URL}v2/countries`);
+    const res = await fetch(`${baseUrl}v2/countries`);
     if (!res.ok) {
       dispatch({
         type: ERROR,
