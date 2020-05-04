@@ -19,11 +19,11 @@ const WWStatesChild = ({
       {country !== null && flag !== null ? (
         <h1 className='WWStatsHeader'>
           <img src={flag} alt={country} className='countryFlag' />
-          {country}
+          COVID-19 in {country}
         </h1>
       ) : (
         <h1 className='WWStatsHeader'>
-          <i className='fas fa-globe'></i> Coronavirus World Stats
+          <i className='fas fa-globe'></i> COVID-19 Pandemic Worldwide
         </h1>
       )}
 
