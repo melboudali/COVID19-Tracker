@@ -11,7 +11,6 @@ process.env.NODE_ENV
   : (baseUrl = process.env.BASE_URL);
 
 export const getAllCountries = () => async dispatch => {
-  console.log(process.env.REACT_APP_BASE_URL);
   setLoading();
   try {
     const res = await fetch(`${process.env.REACT_APP_BASE_URL}v2/countries`);
@@ -23,12 +22,13 @@ export const getAllCountries = () => async dispatch => {
       throw new Error(`HTTP Status: ${res.status}`);
     }
     const data = await res.json();
-    const sortedCountriesByCases = [...data].sort((a, b) => {
+    const dataFiltered = data.filter(data => data.country !== 'Western Sahara');
+    const sortedCountriesByCases = [...dataFiltered].sort((a, b) => {
       return b.cases - a.cases;
     });
     dispatch({
       type: GET_ALL_COUNTRIES,
-      payload: { allCountries: data, sortedCountriesByCases }
+      payload: { allCountries: dataFiltered, sortedCountriesByCases }
     });
   } catch (err) {
     dispatch({ type: ERROR, payload: err.message });
