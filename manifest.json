@@ -1,19 +1,19 @@
 {
-  "short_name": "My React Boilerplate",
-  "name": "My React Boilerplate",
+  "short_name": "COVID-19 Tracker",
+  "name": "COVID-19 Tracker",
   "icons": [
     {
-      "src": "./images/favicon.ico",
+      "src": "./images/logo.svg",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "./images/logo192.png",
+      "src": "./images/logo.svg",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "./images/logo512.png",
+      "src": "./images/logo.svg",
       "type": "image/png",
       "sizes": "512x512"
     }
