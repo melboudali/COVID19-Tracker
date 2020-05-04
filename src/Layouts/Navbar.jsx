@@ -15,7 +15,7 @@ const NavComp = () => {
             placement='bottom'
             delay={{ show: 150, hide: 150 }}
             overlay={<Tooltip className='myToolTip'>COVID-19 Tracker</Tooltip>}>
-            <Navbar.Brand href='#home' className='titleContiner'>
+            <Navbar.Brand className='titleContiner'>
               <img src={logo} alt='logo' className='logo' />
               <p className='title'>COVID-19 Tracker</p>
             </Navbar.Brand>
@@ -24,12 +24,6 @@ const NavComp = () => {
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='mr-auto justify-content-end navWidth'>
-              <Nav.Link href='#home'>
-                <i className='fas fa-home navIcons'></i>
-                {window.innerWidth < 992 && (
-                  <span className='navIconsSpan'>Home</span>
-                )}
-              </Nav.Link>
               <OverlayTrigger
                 placement='bottom'
                 delay={{ show: 150, hide: 150 }}

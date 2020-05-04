@@ -32,7 +32,7 @@ const Footer = () => {
               <Nav.Link href='https://corona.lmao.ninja/' target='_blank'>
                 <i
                   className='fas fa-code navIcons'
-                  title='API: NOVELCovid/API'></i>
+                  title='Data Source: NOVELCovid/API'></i>
               </Nav.Link>
               <Nav.Link href='https://github.com/MedElBoudali' target='_blank'>
                 <i className='fab fa-github-alt navIcons' title='My Github'></i>

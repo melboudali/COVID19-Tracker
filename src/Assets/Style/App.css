@@ -161,7 +161,7 @@ code {
 
 /* Last Update */
 .lastUpdate {
-  text-align: left;
+  text-align: center;
   margin: 10px 0 0 0;
   color: rgb(160, 160, 160);
   font-size: 0.8rem;
@@ -193,12 +193,12 @@ code {
 /* WWStats */
 .WWStats {
   height: fit-content;
-  width: fit-content;
+  width: 100%;
   margin: 5px auto;
   /* border: 1px #d6d6d6 solid; */
   border-radius: 5px;
   padding: 5px;
-  text-align: center;
+  text-align: center !important;
 }
 
 .countryFlag {
@@ -217,12 +217,13 @@ code {
 .WCDR {
   display: block;
   box-sizing: border-box;
-  text-align: center;
+  text-align: center !important;
   display: block;
   font-family: 'Varela Round' !important;
   font-size: 1.1em;
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.829);
-  margin: 40px 0 15px 0 !important;
+  margin: 25px 0 10px 0 !important;
+  width: 100%;
 }
 
 .WWCases {
@@ -235,6 +236,7 @@ code {
   -webkit-box-shadow: 0px 0px 32px -10px rgb(0, 0, 0);
   -moz-box-shadow: 0px 0px 32px -10px rgb(0, 0, 0);
   box-shadow: 0px 0px 32px -10px rgb(0, 0, 0);
+  margin: 5px 10px !important;
 }
 
 .WWIcons {
@@ -248,7 +250,7 @@ code {
   text-align: left;
   color: rgb(255, 255, 255);
   display: inline-block;
-  margin: 0 40px !important;
+  margin: 5px 10px !important;
   background-color: #d32a41;
   border-radius: 5px;
   padding: 10px 15px;
@@ -262,7 +264,7 @@ code {
   color: #ffffff;
   background-color: rgb(25, 173, 87);
   display: inline-block;
-  margin: 0 40px 0 0 !important;
+  margin: 5px 10px !important;
   border-radius: 5px;
   padding: 10px 15px;
   -webkit-box-shadow: 0px 0px 32px -10px rgb(0, 255, 85);
@@ -280,6 +282,7 @@ code {
   -webkit-box-shadow: 0px 0px 32px -10px rgb(119, 45, 204);
   -moz-box-shadow: 0px 0px 32px -10px rgb(119, 45, 204);
   box-shadow: 0px 0px 32px -10px rgb(119, 45, 204);
+  margin: 5px 10px !important;
 }
 
 .WWtodayResults {
@@ -643,4 +646,92 @@ code {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(0, 92, 38);
+}
+
+/* Media breakpoints */
+@media (min-width: 500px) {
+  /* Add WWStates Title && Coutries List */
+  .WWCases {
+    width: 40%;
+  }
+
+  .WWDeaths {
+    width: 40%;
+  }
+
+  .WWRecovered {
+    width: 40%;
+  }
+
+  .WWTests {
+    width: 40%;
+  }
+}
+@media (min-width: 576px) {
+  .WWCases {
+    width: 40%;
+  }
+
+  .WWDeaths {
+    width: 40%;
+  }
+
+  .WWRecovered {
+    width: 40%;
+  }
+
+  .WWTests {
+    width: 40%;
+  }
+}
+@media (min-width: 768px) {
+  .WWCases {
+    width: 40%;
+  }
+
+  .WWDeaths {
+    width: 40%;
+  }
+
+  .WWRecovered {
+    width: 40%;
+  }
+
+  .WWTests {
+    width: 40%;
+  }
+}
+@media (min-width: 992px) {
+  .WWCases {
+    width: 20%;
+  }
+
+  .WWDeaths {
+    width: 20%;
+  }
+
+  .WWRecovered {
+    width: 20%;
+  }
+
+  .WWTests {
+    width: 20%;
+  }
+}
+@media (min-width: 1200px) {
+  .WWCases {
+    width: 20%;
+  }
+
+  .WWDeaths {
+    width: 20%;
+  }
+
+  .WWRecovered {
+    width: 20%;
+  }
+
+  .WWTests {
+    width: 20%;
+  }
 }

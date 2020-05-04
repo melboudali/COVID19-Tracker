@@ -18,7 +18,7 @@ const MidSectionContainer = () => {
         </Col>
       </Row>
       <Row className='rowPadding'>
-        <Col xs='12' sm='12' md='8' lg='8' xl='8' className='noPadding'>
+        <Col xs='12' sm='12' md='12' lg='8' xl='8' className='noPadding'>
           <p className='mapHeader'>
             <i className='fas fa-globe-africa'></i>Coronavirus World Map
           </p>
@@ -26,7 +26,7 @@ const MidSectionContainer = () => {
             <GlobalMap />
           </div>
         </Col>
-        <Col xs='12' sm='12' md='4' lg='4' xl='4' className='noPadding'>
+        <Col xs='12' sm='12' md='12' lg='4' xl='4' className='noPadding'>
           <p className='countriesListHeader'>
             <i className='far fa-flag'></i>Country Breakdown
           </p>
