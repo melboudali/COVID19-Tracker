@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import ContriesListItem from './ContriesListItem';
 import Spinner from 'react-bootstrap/Spinner';

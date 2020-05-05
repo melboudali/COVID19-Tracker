@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
+import PropTypes from 'prop-types';
 
 const WWStatesChild = ({
   country = null,
@@ -115,6 +116,18 @@ const WWStatesChild = ({
       </p>
     </>
   );
+};
+
+WWStatesChild.prototype = {
+  country: PropTypes.string,
+  flag: PropTypes.string,
+  cases: PropTypes.number,
+  todayCases: PropTypes.number,
+  deaths: PropTypes.number,
+  todayDeaths: PropTypes.number,
+  recovered: PropTypes.number,
+  tests: PropTypes.number,
+  updated: PropTypes.number
 };
 
 export default WWStatesChild;

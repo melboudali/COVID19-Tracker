@@ -1,26 +1,15 @@
 import React from 'react';
 import Child from './WWStatesChild';
-import moment from 'moment';
 import { connect } from 'react-redux';
 import Spinner from 'react-bootstrap/Spinner';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
+import PropTypes from 'prop-types';
 
 const WWStats = ({
   AllCountriesData: { WWStats, allCountriesloading },
-  CurrentCountryData: { currentCountry, currentCountryLoading }
+  CurrentCountryData: { currentCountry }
 }) => {
-  let {
-    updated,
-    cases,
-    todayCases,
-    deaths,
-    todayDeaths,
-    recovered,
-    active,
-    critical,
-    tests
-  } = WWStats || {};
+  const { updated, cases, todayCases, deaths, todayDeaths, recovered, tests } =
+    WWStats || {};
 
   return (
     <div className='WWStats'>
@@ -55,6 +44,12 @@ const WWStats = ({
       )}
     </div>
   );
+};
+
+WWStats.prototype = {
+  WWStats: PropTypes.object,
+  allCountriesloading: PropTypes.bool,
+  currentCountry: PropTypes.object
 };
 
 const mapStateToProps = state => ({

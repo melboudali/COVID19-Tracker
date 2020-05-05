@@ -1,12 +1,10 @@
 import React from 'react';
-import moment from 'moment';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import PropTypes from 'prop-types';
 
 const ContriesListItem = ({
   country: {
-    updated,
     country,
     countryInfo: { flag },
     cases,
@@ -14,8 +12,6 @@ const ContriesListItem = ({
     deaths,
     todayDeaths,
     recovered,
-    active,
-    critical,
     tests
   }
 }) => {
@@ -98,18 +94,21 @@ const ContriesListItem = ({
             {tests.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
           </div>
         </OverlayTrigger>
-
-        {/* <p className='lastUpdateList'>
-          <i className='far fa-clock' />
-          Last update:<span>{moment(updated).fromNow()}.</span>
-        </p> */}
       </div>
     </div>
   );
 };
 
 ContriesListItem.propTypes = {
-  country: PropTypes.object.isRequired
+  updated: PropTypes.number,
+  country: PropTypes.object,
+  flag: PropTypes.string,
+  cases: PropTypes.number,
+  todayCases: PropTypes.number,
+  deaths: PropTypes.number,
+  todayDeaths: PropTypes.number,
+  recovered: PropTypes.number,
+  tests: PropTypes.number
 };
 
 export default ContriesListItem;

@@ -33,6 +33,7 @@ const LineChart = ({
           Deaths,
           Recovered
         });
+    // eslint-disable-next-line
   }, [WWDates, Dates]);
 
   return (

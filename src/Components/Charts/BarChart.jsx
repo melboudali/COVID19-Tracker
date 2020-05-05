@@ -33,6 +33,7 @@ const BarChart = ({
           Deaths,
           Recovered
         });
+        // eslint-disable-next-line
   }, [Dates, WWDates]);
 
   return (

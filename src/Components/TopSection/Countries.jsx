@@ -64,7 +64,7 @@ const Countries = ({
         critical,
         tests
       } = e;
-      //   Set Current country
+      // Set Current country
       setCurrentCountry({
         updated,
         country,
