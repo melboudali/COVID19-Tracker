@@ -480,13 +480,16 @@ code {
   text-align: center;
   display: block;
   font-weight: bold;
-  font-size: 0.9em;
+  font-size: 0.8em;
+  width: 100%;
 }
 
 .Cases {
   color: rgb(60, 60, 60);
   display: inline-block;
   text-align: center;
+  width: 32%;
+  margin: 0 2px;
 }
 
 .Cases i {
@@ -499,7 +502,8 @@ code {
   color: rgb(241, 81, 81);
   display: inline-block;
   text-align: center;
-  margin: 0 10px 0 15px !important;
+  width: 23%;
+  margin: 0 2px;
 }
 
 .Deaths i {
@@ -512,7 +516,8 @@ code {
   color: rgb(25, 173, 87);
   display: inline-block;
   text-align: center;
-  margin: 0 15px 0 10px !important;
+  width: 19%;
+  margin: 0 2px;
 }
 
 .Recovered i {
@@ -525,6 +530,8 @@ code {
   color: rgb(119, 45, 204);
   display: inline-block;
   text-align: center;
+  width: 20%;
+  margin: 0 2px;
 }
 
 .Tests i {
@@ -535,9 +542,10 @@ code {
 
 .todayResults {
   color: rgba(255, 0, 64, 0.788);
-  margin-left: 3px;
+  margin-left: 2px;
   font-size: 0.6rem;
   vertical-align: middle;
+  display: inline-block;
 }
 
 /* Stats */
