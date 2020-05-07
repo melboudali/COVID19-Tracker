@@ -111,7 +111,6 @@ code {
 }
 
 .countriesDopdown {
-  width: 60%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -202,7 +201,6 @@ code {
 }
 
 .countryFlag {
-  width: 55px;
   margin-right: 10px;
   border-radius: 3px;
 }
@@ -211,7 +209,6 @@ code {
   font-family: 'Varela Round';
   color: #4e4e4e;
   font-weight: bold;
-  font-size: 2rem;
 }
 
 .WCDR {
@@ -578,6 +575,7 @@ code {
 }
 
 .botNavbar {
+  width: 100%;
   height: 40px;
   position: relative;
   background-color: rgb(245, 245, 245) !important;
@@ -649,6 +647,36 @@ code {
 }
 
 /* Media breakpoints */
+@media only screen and (max-width: 500px) {
+  .countryFlag {
+    width: 35px;
+    margin-right: 5px !important;
+  }
+  .WWStatsHeader {
+    font-size: 1.2rem;
+  }
+
+  .countriesDopdown {
+    width: 95%;
+  }
+
+  .WWCases {
+    width: 80%;
+  }
+
+  .WWDeaths {
+    width: 80%;
+  }
+
+  .WWRecovered {
+    width: 80%;
+  }
+
+  .WWTests {
+    width: 80%;
+  }
+}
+
 @media (min-width: 500px) {
   /* Add WWStates Title && Coutries List */
   .WWCases {
