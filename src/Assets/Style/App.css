@@ -652,6 +652,7 @@ code {
     width: 35px;
     margin-right: 5px !important;
   }
+
   .WWStatsHeader {
     font-size: 1.2rem;
   }
@@ -677,25 +678,20 @@ code {
   }
 }
 
-@media (min-width: 500px) {
-  /* Add WWStates Title && Coutries List */
-  .WWCases {
-    width: 40%;
+@media (min-width: 501px) {
+  .countryFlag {
+    width: 40px;
+    margin-right: 5px !important;
   }
 
-  .WWDeaths {
-    width: 40%;
+  .WWStatsHeader {
+    font-size: 1.4rem;
   }
 
-  .WWRecovered {
-    width: 40%;
+  .countriesDopdown {
+    width: 90%;
   }
 
-  .WWTests {
-    width: 40%;
-  }
-}
-@media (min-width: 576px) {
   .WWCases {
     width: 40%;
   }
@@ -730,6 +726,19 @@ code {
   }
 }
 @media (min-width: 992px) {
+  .countryFlag {
+    width: 50px;
+    margin-right: 10px !important;
+  }
+
+  .WWStatsHeader {
+    font-size: 1.7rem;
+  }
+
+  .countriesDopdown {
+    width: 60%;
+  }
+
   .WWCases {
     width: 20%;
   }
