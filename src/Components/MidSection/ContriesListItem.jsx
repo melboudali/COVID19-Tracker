@@ -33,8 +33,9 @@ const ContriesListItem = ({
           }>
           <div className='Cases'>
             <i className='fas fa-users'></i>
-            {cases.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
-            {todayCases > 0 && (
+            {cases !== null &&
+              cases.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+            {todayCases !== null && (
               <span className='todayResults'>
                 +
                 {todayCases
@@ -55,8 +56,9 @@ const ContriesListItem = ({
           }>
           <div className='Deaths'>
             <i className='fas fa-skull'></i>
-            {deaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
-            {todayDeaths > 0 && (
+            {deaths !== null &&
+              deaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+            {todayDeaths !== null && (
               <span className='todayResults'>
                 +
                 {todayDeaths
@@ -77,7 +79,8 @@ const ContriesListItem = ({
           }>
           <div className='Recovered'>
             <i className='fas fa-hospital-user'></i>
-            {recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+            {recovered !== null &&
+              recovered.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
           </div>
         </OverlayTrigger>
 
@@ -91,7 +94,8 @@ const ContriesListItem = ({
           }>
           <div className='Tests'>
             <i className='fas fa-vial'></i>
-            {tests.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+            {tests !== null &&
+              tests.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
           </div>
         </OverlayTrigger>
       </div>
