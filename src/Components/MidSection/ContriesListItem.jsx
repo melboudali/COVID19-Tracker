@@ -36,15 +36,13 @@ const ContriesListItem = ({
             {cases !== null
               ? cases.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
               : 0}
-            {todayCases !== null ? (
+            {todayCases !== null && (
               <span className='todayResults'>
                 +
                 {todayCases
                   .toString()
                   .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
               </span>
-            ) : (
-              <span className='todayResults'>+ 0</span>
             )}
           </div>
         </OverlayTrigger>
@@ -62,15 +60,13 @@ const ContriesListItem = ({
             {deaths !== null
               ? deaths.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
               : 0}
-            {todayDeaths !== null ? (
+            {todayDeaths !== null && (
               <span className='todayResults'>
                 +
                 {todayDeaths
                   .toString()
                   .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
               </span>
-            ) : (
-              <span className='todayResults'>+ 0</span>
             )}
           </div>
         </OverlayTrigger>
