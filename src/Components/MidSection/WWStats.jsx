@@ -1,5 +1,5 @@
 import React from 'react';
-import Child from './WWStatesChild';
+import Child from './WWStatsChild';
 import { connect } from 'react-redux';
 import Spinner from 'react-bootstrap/Spinner';
 import PropTypes from 'prop-types';
