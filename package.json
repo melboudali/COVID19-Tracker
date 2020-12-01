@@ -1,6 +1,6 @@
 {
   "name": "covid19-tracker",
-  "homepage": "https://medelboudali.github.io/COVID19-Tracker/",
+  "homepage": "https://covid19.elboudali.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
