@@ -10,5 +10,5 @@
     <p align="center">:camera_flash: Image 2: COVID-19 in Italy</p>
     <img width= "500px" src='https://i.imgur.com/d6CdIbf.png' alt='Covid19'/>
 </div>
-:rocket: Live: https://medelboudali.github.io/COVID19-Tracker <br/>
-:ok_hand: API: https://corona.lmao.ninja 
+:rocket: Live: https://melboudali.github.io/COVID19-Tracker <br/>
+:ok_hand: API: https://corona.lmao.ninja
