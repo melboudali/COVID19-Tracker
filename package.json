@@ -1,6 +1,6 @@
 {
 	"name": "covid19-tracker",
-	"homepage": ".",
+	"homepage": "http://covid19.elboudali.com/",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
